@@ -14,13 +14,8 @@ import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.fragment.app.DialogFragment;
-
-import esys.soluciones.esyspos.R;
 
 import java.sql.Connection;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
 /**
  * Created by PROGRAMADOR2 on 01/11/2017.
