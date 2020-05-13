@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/mdi"
+    tools:context=".configuracion">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.71000004">
+
+        <EditText
+        android:id="@+id/txtServidor"
+        android:backgroundTint="@color/colorTexto"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:ems="20"
+        android:fontFamily="@font/carrois_gothic"
+        android:gravity="center"
+        android:hint="Servidor"
+        android:inputType="textPersonName"
+        android:textColor="@color/colorTexto"
+        android:textColorHint="@color/colorTexto"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="184dp"
+        android:autofillHints="" />
+
+        <EditText
+            android:id="@+id/txtPuerto"
+            android:backgroundTint="@color/colorTexto"
+            android:fontFamily="@font/carrois_gothic"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ems="20"
+            android:gravity="center"
+            android:hint="Puerto"
+            android:inputType="numberDecimal"
+            android:textColor="@color/colorTexto"
+            android:textColorHint="@color/colorTexto"
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="184dp" />
+
+        <EditText
+            android:id="@+id/txtBD"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/colorTexto"
+            android:ems="20"
+            android:fontFamily="@font/carrois_gothic"
+            android:gravity="center"
+            android:hint="Base Datos"
+            android:inputType="text"
+            android:textColor="@color/colorTexto"
+            android:textColorHint="@color/colorTexto"
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="184dp" />
+
+        <EditText
+            android:id="@+id/txtUsuario"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorTexto"
+            android:ems="20"
+            android:fontFamily="@font/carrois_gothic"
+            android:gravity="center"
+            android:hint="Usuario"
+            android:inputType="text"
+            android:textColor="@color/colorTexto"
+            android:textColorHint="@color/colorTexto"
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="184dp" />
+
+        <EditText
+            android:id="@+id/txtContraseña"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorTexto"
+            android:ems="20"
+            android:fontFamily="@font/carrois_gothic"
+            android:gravity="center"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:textColor="@color/colorTexto"
+            android:textColorHint="@color/colorTexto"
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="184dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView"
+                android:backgroundTint="@color/colorTexto"
+                android:fontFamily="@font/carrois_gothic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Terminal: "
+                android:textColor="@color/colorTexto"
+                android:textColorHint="@color/colorTexto"
+                android:textSize="24sp"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="184dp"/>
+
+            <Spinner
+                android:id="@+id/spinner_terminal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:dropDownWidth="wrap_content"
+                android:spinnerMode="dialog" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="20dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnGuardar"
+                android:fontFamily="@font/carrois_gothic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/redondeo_imagenes"
+                android:text="Guardar"
+                android:textStyle="bold"
+                android:textColor="@android:color/black" />
+
+            <Button
+                android:id="@+id/btnAtras"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/redondeo_imagenes"
+                android:fontFamily="@font/carrois_gothic"
+                android:text="Atras"
+                android:textStyle="bold"
+                android:textColor="@android:color/black" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

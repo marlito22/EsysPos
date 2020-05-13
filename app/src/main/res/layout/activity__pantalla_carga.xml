@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="._pantalla_carga"
+    android:background="@drawable/fondo">
+
+
+    <ImageButton
+        android:id="@+id/bntConta"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="28dp"
+        android:background="@drawable/menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="104dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnEnviarPedido"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="200dp"
+            tools:layout_editor_absoluteY="141dp">
+
+            <LinearLayout
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <requestFocus />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/lbUsuario"
+                android:fontFamily="@font/carrois_gothic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="USUARIO"
+                android:textAllCaps="false"
+                android:textColor="@color/colorTexto"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="170dp" />
+
+            <EditText
+                android:id="@+id/txtNombreUsuario"
+                android:backgroundTint="@color/colorTexto"
+                android:fontFamily="@font/carrois_gothic"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="20"
+                android:gravity="center"
+                android:hint="nombre de usuario"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorTexto"
+                android:textColorHint="@color/colorTexto"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="184dp" />
+
+            <TextView
+                android:id="@+id/lbContraseña"
+                android:fontFamily="@font/carrois_gothic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="CONTRASEÑA"
+                android:textColor="@color/colorTexto"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="229dp" />
+
+            <EditText
+                android:id="@+id/txtContraseña"
+                android:backgroundTint="@color/colorTexto"
+                android:fontFamily="@font/carrois_gothic"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="20"
+                android:gravity="center"
+                android:hint="contraseña"
+                android:inputType="textPassword"
+                android:textColor="@color/colorTexto"
+                android:textColorHint="@color/colorTexto"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="184dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnEnviarPedido"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/redondeo_imagenes"
+        android:text="Iniciar Sesion"
+        android:textColor="@android:color/background_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
