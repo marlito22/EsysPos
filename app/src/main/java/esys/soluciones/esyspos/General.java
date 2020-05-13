@@ -1,14 +1,19 @@
 package esys.soluciones.esyspos;
 
+import android.Manifest;
+import android.app.Activity;
 import android.app.Application;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.view.Window;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
 
 import esys.soluciones.esyspos.R;
@@ -32,14 +37,35 @@ public class General extends Application {
     public static String user ;
     public static String pass;
     public static String Terminal;
-    public static int CONSECUTIVO_PEDIDO;
     public static Connection connection;
+    private static final int CODIGO_PARA_AUTORIZAR_CAMARA = 1;
 
 
     //public static Context activity_actual;
 
     private static ProgressDialog progressDialog = null;
-    private static DialogFragment dialogFragment = null;
+
+    public static void Permisos(Activity activity){
+        if (ContextCompat.checkSelfPermission(activity, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.CAMERA},CODIGO_PARA_AUTORIZAR_CAMARA);
+        }
+
+        if (ContextCompat.checkSelfPermission(activity, Manifest.permission.INTERNET) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.INTERNET},CODIGO_PARA_AUTORIZAR_CAMARA);
+        }
+
+        if (ContextCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_NETWORK_STATE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.ACCESS_NETWORK_STATE},CODIGO_PARA_AUTORIZAR_CAMARA);
+        }
+
+        if (ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},CODIGO_PARA_AUTORIZAR_CAMARA);
+        }
+
+        if (ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},CODIGO_PARA_AUTORIZAR_CAMARA);
+        }
+    }
 
     public static void cargando(Context context, boolean modo) {
         if(modo){
@@ -54,16 +80,6 @@ public class General extends Application {
         }
     }
 
-    public static String FECHA_ACTUAL(){
-        Calendar c = Calendar.getInstance();
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-        String formattedDate = df.format(c.getTime());
-        String fecha_actual = formattedDate ;
-        return fecha_actual;
-    }
-    public static void setConsecutivoPedido(int consecutivoPedido) {
-        CONSECUTIVO_PEDIDO = consecutivoPedido;
-    }
     public static void IniciarVariables(){
 
         try {
@@ -101,44 +117,13 @@ public class General extends Application {
             editor.putString("User",txtUser.getText().toString());
             editor.putString("Pass",txtPass.getText().toString());
             editor.putString("Terminal",Terminal);
-            editor.commit();
+            editor.apply();
             ok.show();
         } catch (Exception E){
             error.show();
         }
     }
-    public static boolean VerificarConexionDeRED(Context cxt){
 
-        try {
-            Process p = java.lang.Runtime.getRuntime().exec("ping -c 1 www.google.com.co");
-
-            int val = p.waitFor();
-            boolean reachable = (val == 0);
-            return reachable;
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-    public static String RegresarString(String str){
-        String frase = "";
-        for (int i = 0; i < str.length(); i++) {
-            char current = str.charAt(i);
-
-            if  ((current > 64 && current < 91) ||
-                    (current == 32) ||
-                    (current > 96 && current < 123) ||
-                    (current > 47 && current < 63) ||
-                    (current > 39 && current < 47))  {
-                frase = frase + "" + current;
-            }
-
-
-        }
-
-        return frase;
-    }
     public static int obtenerPosicionItem(Spinner spinner, String terminal) {
         int posicion = 0;
         for (int i = 0; i < spinner.getCount(); i++) {

@@ -1,6 +1,7 @@
 package esys.soluciones.esyspos;
 
 import androidx.appcompat.app.AppCompatActivity;
+import static esys.soluciones.esyspos.General.*;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,6 +24,8 @@ public class _pantalla_carga extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity__pantalla_carga);
+
+        Permisos(this);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //iniciamos variables de la conexion
         General.sharpref = getSharedPreferences("Conta",MODE_PRIVATE);
