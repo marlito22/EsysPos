@@ -1,9 +1,8 @@
-package com.example.esyspos;
+package esys.soluciones.esyspos;
 
 import android.content.Context;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -13,10 +12,10 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.esyspos.R;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.example.esyspos.General.cargando;
 
 public class agregar_producto {
 

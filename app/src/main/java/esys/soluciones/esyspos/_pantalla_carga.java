@@ -1,10 +1,8 @@
-package com.example.esyspos;
+package esys.soluciones.esyspos;
 
 import androidx.appcompat.app.AppCompatActivity;
-import static com.example.esyspos.General.*;
 
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -12,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import com.example.esyspos.R;
 
 public class _pantalla_carga extends AppCompatActivity {
 
@@ -25,10 +25,10 @@ public class _pantalla_carga extends AppCompatActivity {
         setContentView(R.layout.activity__pantalla_carga);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //iniciamos variables de la conexion
-        sharpref = getSharedPreferences("Conta",MODE_PRIVATE);
-        IniciarVariables();
-        IniciarConexionMysql(this);
-        if(servidor.equals("")){
+        General.sharpref = getSharedPreferences("Conta",MODE_PRIVATE);
+        General.IniciarVariables();
+        General.IniciarConexionMysql(this);
+        if(General.servidor.equals("")){
             Toast.makeText(getApplicationContext(),"Configure su Dispositivo > Configuracion",Toast.LENGTH_LONG).show();
         }
         //Botones

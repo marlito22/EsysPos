@@ -1,4 +1,4 @@
-package com.example.esyspos;
+package esys.soluciones.esyspos;
 
 import androidx.recyclerview.widget.RecyclerView;
 

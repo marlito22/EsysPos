@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="._pantalla_carga"
+    tools:context="esys.soluciones.esyspos._pantalla_carga"
     android:background="@drawable/fondo">
 
 

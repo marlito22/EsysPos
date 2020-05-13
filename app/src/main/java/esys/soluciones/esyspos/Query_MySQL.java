@@ -1,12 +1,10 @@
-package com.example.esyspos;
+package esys.soluciones.esyspos;
 
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.view.View;
-import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
@@ -25,8 +23,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import static com.example.esyspos.General.*;
-
 public class Query_MySQL extends Application {
 
 
@@ -39,7 +35,7 @@ public class Query_MySQL extends Application {
 
         @Override
         protected void onPreExecute() {
-            cargando(activity,true);
+            General.cargando(activity,true);
         }
 
         @Override
@@ -48,7 +44,7 @@ public class Query_MySQL extends Application {
             ResultSet rs = null;
 
             try {
-                stmt = connection.createStatement();
+                stmt = General.connection.createStatement();
                 rs = stmt.executeQuery("SELECT SF_LOGIN('"+ parametro[0] +"', '"+ parametro[1] +"')");
             } catch (NoClassDefFoundError e){
                 Log.e("Definicion de clase",e.getMessage());
@@ -72,7 +68,7 @@ public class Query_MySQL extends Application {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            cargando(activity,false);
+            General.cargando(activity,false);
         }
     }
 
@@ -95,8 +91,8 @@ public class Query_MySQL extends Application {
             ResultSet rs = null;
 
             try {
-                stmt = connection.createStatement();
-                rs = stmt.executeQuery("SELECT SF_CONSECUTIVO_PEDIDO_ANDROID("+Terminal+")");
+                stmt = General.connection.createStatement();
+                rs = stmt.executeQuery("SELECT SF_CONSECUTIVO_PEDIDO_ANDROID("+ General.Terminal+")");
             } catch (NoClassDefFoundError e){
                 Log.e("Definicion de clase",e.getMessage());
             } catch (Exception e) {
@@ -114,7 +110,7 @@ public class Query_MySQL extends Application {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            cargando(activity,false);
+            General.cargando(activity,false);
         }
     }
 
@@ -143,7 +139,7 @@ public class Query_MySQL extends Application {
 
         @Override
         protected void onPreExecute() {
-            cargando(activity,true);
+            General.cargando(activity,true);
         }
 
         @Override
@@ -152,7 +148,7 @@ public class Query_MySQL extends Application {
             ResultSet rs = null;
 
             try {
-                stmt = connection.createStatement();
+                stmt = General.connection.createStatement();
                 rs = stmt.executeQuery("CALL SP_CUADRE_CAJA_POR_CAJERO('"+ parametro[0] +"', '"+ parametro[1] +"')");
             } catch (NoClassDefFoundError e){
                 Log.e("Definicion de clase",e.getMessage());
@@ -218,7 +214,7 @@ public class Query_MySQL extends Application {
             ResultSet rs = null;
 
             try {
-                stmt = connection.createStatement();
+                stmt = General.connection.createStatement();
                 rs = stmt.executeQuery("CALL SP_CAJEROS_CUADRE_DE_CAJA_POR_CAJERO('20200320', '20200320')");
             } catch (NoClassDefFoundError e){
                 Log.e("Definicion de clase",e.getMessage());
@@ -252,7 +248,7 @@ public class Query_MySQL extends Application {
                 e.printStackTrace();
             }
 
-            cargando(activity,false);
+            General.cargando(activity,false);
         }
     }
 
@@ -290,7 +286,7 @@ public class Query_MySQL extends Application {
 
         @Override
         protected void onPreExecute() {
-            cargando(activity,true);
+            General.cargando(activity,true);
         }
 
         @Override
@@ -299,7 +295,7 @@ public class Query_MySQL extends Application {
             ResultSet rs = null;
 
             try {
-                stmt = connection.createStatement();
+                stmt = General.connection.createStatement();
                 rs = stmt.executeQuery("SELECT t43.NOMREF, t43.CODIGOREF , \n" +
                         "format(t43.PREUCO,0), format(t43.PREVEN,0), \n" +
                         "format(t43.PREVEN1,0), format(t43.PREVEN2,0), \n" +
@@ -340,7 +336,7 @@ public class Query_MySQL extends Application {
 
             }
 
-           cargando(activity,false);
+           General.cargando(activity,false);
         }
     }
 
@@ -363,7 +359,7 @@ public class Query_MySQL extends Application {
 
         @Override
         protected void onPreExecute() {
-            cargando(activity,true);
+            General.cargando(activity,true);
         }
 
         @Override
@@ -372,7 +368,7 @@ public class Query_MySQL extends Application {
             ResultSet rs = null;
 
             try {
-                stmt = connection.createStatement();
+                stmt = General.connection.createStatement();
                 rs = stmt.executeQuery("SELECT concat(trim(t64.NOMCLI),'-', t64.NITCLI) cliente FROM t64");
             } catch (NoClassDefFoundError e){
                 Log.e("Definicion de clase",e.getMessage());
@@ -394,7 +390,7 @@ public class Query_MySQL extends Application {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            cargando(activity,false);
+            General.cargando(activity,false);
             dialog.show();
         }
     }
@@ -421,7 +417,7 @@ public class Query_MySQL extends Application {
 
         @Override
         protected void onPreExecute() {
-            cargando(activity,true);
+            General.cargando(activity,true);
         }
 
         @Override
@@ -430,7 +426,7 @@ public class Query_MySQL extends Application {
             ResultSet rs = null;
 
             try {
-                stmt = connection.createStatement();
+                stmt = General.connection.createStatement();
                 rs = stmt.executeQuery("SELECT t43.NOMREF, t43.CODIGOREF , \n" +
                         "format(t43.PREUCO,0), format(t43.PREVEN,0), \n" +
                         "format(t43.PREVEN1,0), format(t43.PREVEN2,0), \n" +
@@ -509,16 +505,16 @@ public class Query_MySQL extends Application {
 
         @Override
         protected void onPreExecute() {
-            cargando(activity,true);
+            General.cargando(activity,true);
         }
 
         @Override
         protected Boolean doInBackground(Boolean... parametro) {
             try {
-                connection.setAutoCommit(false);
+                General.connection.setAutoCommit(false);
                 String sql = "INSERT INTO tv11 (IDTERMINAL, IDPEDIDO, FECHA, ESTADO, IDCLIENTE, COMENTARIO, TOTAL) VALUES(?,?,now(),'GUARDADO',?,?,?)";
-                stmt = connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
-                stmt.setString(1,Terminal);
+                stmt = General.connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
+                stmt.setString(1, General.Terminal);
                 stmt.setInt(2,Id_pedido);
                 stmt.setString(3,nitcli_pedido);
                 stmt.setString(4,comentario_pedido);
@@ -527,10 +523,10 @@ public class Query_MySQL extends Application {
             } catch (Exception e) {
                 error = e.getMessage();
                 try {
-                    connection.rollback();
-                    cargando(activity,false);
+                    General.connection.rollback();
+                    General.cargando(activity,false);
                 } catch (SQLException ex) {
-                    cargando(activity,false);
+                    General.cargando(activity,false);
                     ex.printStackTrace();
                     Toast.makeText(activity,e.getMessage(),Toast.LENGTH_LONG).show();
                 }
@@ -550,10 +546,10 @@ public class Query_MySQL extends Application {
                     detallesPedidoMysql.execute();
                 }else {
                     Toast.makeText(activity,error,Toast.LENGTH_LONG).show();
-                    cargando(activity,false);
+                    General.cargando(activity,false);
                 }
             } catch (Exception e) {
-                cargando(activity,false);
+                General.cargando(activity,false);
                 e.printStackTrace();
             }
         }
@@ -591,8 +587,8 @@ public class Query_MySQL extends Application {
                 for (int i=0; i < referencias.getItemCount();i++){
                     String sql = "INSERT INTO tv10 (IDTERMINAL, IDPEDIDO, CODIGOREF, CANTIDAD, PRECIOUND, PRECIOTOT) VALUES (?,?,?,?,?,?)";
                     valor = Double.parseDouble(referencias.datosReferenciasPedidos.get(i).getValor().replace(",",""));
-                    stmt = connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
-                    stmt.setInt(1,Integer.parseInt(Terminal));
+                    stmt = General.connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
+                    stmt.setInt(1,Integer.parseInt(General.Terminal));
                     stmt.setInt(2,Id_pedido);
                     stmt.setInt(3,referencias.datosReferenciasPedidos.get(i).getCodigoref());
                     stmt.setInt(4, referencias.datosReferenciasPedidos.get(i).getCantidad());
@@ -600,16 +596,16 @@ public class Query_MySQL extends Application {
                     stmt.setDouble(6,(valor *  referencias.datosReferenciasPedidos.get(i).getCantidad()));
                     stmt.executeUpdate();
                 }
-                connection.commit();
+                General.connection.commit();
             } catch (Exception e) {
                 error = e.getMessage();
                 try {
-                    connection.rollback();
-                    cargando(activity,false);
+                    General.connection.rollback();
+                    General.cargando(activity,false);
                 } catch (SQLException ex) {
                     ex.printStackTrace();
                     Toast.makeText(activity,e.getMessage(),Toast.LENGTH_LONG).show();
-                    cargando(activity,false);
+                    General.cargando(activity,false);
                 }
                 return false;
             }
@@ -626,9 +622,9 @@ public class Query_MySQL extends Application {
                     dialog.dismiss();
                     Toast.makeText(activity,error,Toast.LENGTH_LONG).show();
                 }
-                cargando(activity,false);
+                General.cargando(activity,false);
             } catch (Exception e) {
-                cargando(activity,false);
+                General.cargando(activity,false);
                 e.printStackTrace();
             }
         }

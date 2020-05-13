@@ -1,23 +1,20 @@
-package com.example.esyspos;
+package esys.soluciones.esyspos;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.InputType;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
-import android.widget.ListView;
 import android.widget.Toast;
+
+import com.example.esyspos.R;
 
 import java.util.ArrayList;
 import java.util.Calendar;

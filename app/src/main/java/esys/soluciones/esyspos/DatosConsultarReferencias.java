@@ -1,4 +1,4 @@
-package com.example.esyspos;
+package esys.soluciones.esyspos;
 
 public class DatosConsultarReferencias {
 

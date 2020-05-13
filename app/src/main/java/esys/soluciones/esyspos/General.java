@@ -1,23 +1,21 @@
-package com.example.esyspos;
+package esys.soluciones.esyspos;
 
 import android.app.Application;
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
 import android.view.Window;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.fragment.app.DialogFragment;
-import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.esyspos.R;
 
 import java.sql.Connection;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.List;
 
 /**
  * Created by PROGRAMADOR2 on 01/11/2017.

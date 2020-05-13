@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/fondo_sin_logo"
     android:orientation="vertical"
-    tools:context=".cuadre_caja">
+    tools:context="esys.soluciones.esyspos.cuadre_caja">
 
     <LinearLayout
         android:id="@+id/linearLayout2"

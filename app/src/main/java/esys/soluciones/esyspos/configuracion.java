@@ -1,7 +1,7 @@
-package com.example.esyspos;
+package esys.soluciones.esyspos;
 
 import androidx.appcompat.app.AppCompatActivity;
-import static com.example.esyspos.General.*;
+import static esys.soluciones.esyspos.General.*;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -11,6 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+
+import com.example.esyspos.R;
 
 public class configuracion extends AppCompatActivity {
 

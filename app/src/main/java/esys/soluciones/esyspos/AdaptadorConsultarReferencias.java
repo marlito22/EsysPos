@@ -1,4 +1,4 @@
-package com.example.esyspos;
+package esys.soluciones.esyspos;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,17 +9,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.esyspos.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdaptadorBuscarReferencia
-        extends RecyclerView.Adapter<AdaptadorBuscarReferencia.ConsultarReferenciasHolder>
-        implements View.OnClickListener{
-    private View.OnClickListener listener;
+public class AdaptadorConsultarReferencias extends RecyclerView.Adapter<AdaptadorConsultarReferencias.ConsultarReferenciasHolder> {
+
     Context context;
     List<DatosConsultarReferencias> datosConsultarReferencias;
 
-    public AdaptadorBuscarReferencia(Context context, List<DatosConsultarReferencias> datosConsultarReferencias) {
+    public AdaptadorConsultarReferencias(Context context, List<DatosConsultarReferencias> datosConsultarReferencias) {
         this.context = context;
         this.datosConsultarReferencias = datosConsultarReferencias;
     }
@@ -32,16 +32,23 @@ public class AdaptadorBuscarReferencia
     @NonNull
     @Override
     public ConsultarReferenciasHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_buscar_referencia_pedido, parent, false );
-        v.setOnClickListener(this);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_consultar_referencia, parent, false );
         return new ConsultarReferenciasHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ConsultarReferenciasHolder holder, int position) {
+
+
         holder.txtNomref.setText(datosConsultarReferencias.get(position).getNomref());
         holder.txtcodigoref.setText("Codigo: "+datosConsultarReferencias.get(position).getCodigoref());
-        holder.txtpreven.setText(datosConsultarReferencias.get(position).getPreven());
+        holder.txtstock.setText("Stock: "+datosConsultarReferencias.get(position).getStock());
+        holder.txtpreuco.setText("$"+datosConsultarReferencias.get(position).getPreuco());
+        holder.txtpreven.setText("$"+datosConsultarReferencias.get(position).getPreven());
+        holder.txtpreven1.setText("$"+datosConsultarReferencias.get(position).getPreven1());
+        holder.txtpreven2.setText("$"+datosConsultarReferencias.get(position).getPreven2());
+        holder.txtpreven3.setText("$"+datosConsultarReferencias.get(position).getPreven3());
+        holder.txtpreven4.setText("$"+datosConsultarReferencias.get(position).getPreven4());
     }
 
     @Override
@@ -49,27 +56,21 @@ public class AdaptadorBuscarReferencia
         return datosConsultarReferencias.size();
     }
 
-    public void setListener(View.OnClickListener listener) {
-        this.listener = listener;
-    }
-
-    @Override
-    public void onClick(View v) {
-        if (listener!=null){
-            listener.onClick(v);
-        }
-    }
-
-
     public class ConsultarReferenciasHolder extends RecyclerView.ViewHolder {
-        TextView txtNomref, txtcodigoref,txtpreven;
+        TextView txtNomref, txtcodigoref,txtpreuco,txtpreven,txtpreven1,txtpreven2,txtpreven3,txtpreven4, txtstock;
 
 
         public ConsultarReferenciasHolder(@NonNull View itemView) {
             super(itemView);
             txtNomref = itemView.findViewById(R.id.textview_nomref);
             txtcodigoref = itemView.findViewById(R.id.textview_codigoref);
+            txtpreuco = itemView.findViewById(R.id.textview_preuco);
             txtpreven = itemView.findViewById(R.id.textview_preven);
+            txtpreven1 = itemView.findViewById(R.id.textview_preven1);
+            txtpreven2 = itemView.findViewById(R.id.textview_preven2);
+            txtpreven3 = itemView.findViewById(R.id.textview_preven3);
+            txtpreven4 = itemView.findViewById(R.id.textview_preven4);
+            txtstock = itemView.findViewById(R.id.textview_stock);
         }
     }
 }

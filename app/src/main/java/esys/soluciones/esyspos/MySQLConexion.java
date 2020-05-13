@@ -1,9 +1,7 @@
-package com.example.esyspos;
-import static com.example.esyspos.General.*;
+package esys.soluciones.esyspos;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.util.Log;
 import android.widget.Toast;
 
 import java.sql.Connection;
@@ -21,15 +19,15 @@ public class MySQLConexion extends AsyncTask<Void,Integer,Boolean> {
 
     @Override
     protected void onPreExecute() {
-        cargando(activity,true);
+        General.cargando(activity,true);
     }
 
     @Override
     protected Boolean doInBackground(Void... voids) {
         try {
-            String cadenaConexion = "jdbc:mysql://"+servidor+":"+puerto+"/"+bd;
+            String cadenaConexion = "jdbc:mysql://"+ General.servidor+":"+ General.puerto+"/"+ General.bd;
             Class.forName( "com.mysql.jdbc.Driver").newInstance();
-            cn = DriverManager.getConnection(cadenaConexion,user,pass);
+            cn = DriverManager.getConnection(cadenaConexion, General.user, General.pass);
             if (cn == null){
                 return false;
             }
@@ -43,13 +41,13 @@ public class MySQLConexion extends AsyncTask<Void,Integer,Boolean> {
     @Override
     protected void onPostExecute(Boolean resultado) {
         if(resultado) {
-            connection = cn;
+            General.connection = cn;
             Toast.makeText(activity,"Conexion Estable" , Toast.LENGTH_SHORT).show();
         }else {
-            connection = null;
+            General.connection = null;
             Toast.makeText(activity,"Error de Conexion: \r\n\r\n " + error_mysql, Toast.LENGTH_SHORT).show();
         }
-        cargando(activity,false);
+        General.cargando(activity,false);
     }
 
 }

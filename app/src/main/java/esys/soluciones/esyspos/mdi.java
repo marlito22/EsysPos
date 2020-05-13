@@ -1,5 +1,4 @@
-package com.example.esyspos;
-import static com.example.esyspos.General.*;
+package esys.soluciones.esyspos;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,17 +8,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.GridView;
-import android.widget.MultiAutoCompleteTextView;
 import android.widget.Toast;
 
-import com.itextpdf.text.log.Counter;
-
-import java.util.ArrayList;
+import com.example.esyspos.R;
 
 public class mdi extends AppCompatActivity {
 
