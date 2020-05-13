@@ -18,7 +18,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.example.esyspos.R;
+import esys.soluciones.esyspos.R;
 
 import java.util.ArrayList;
 import java.util.List;

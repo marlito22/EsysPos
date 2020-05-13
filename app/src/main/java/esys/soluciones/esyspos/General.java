@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import androidx.fragment.app.DialogFragment;
 
-import com.example.esyspos.R;
+import esys.soluciones.esyspos.R;
 
 import java.sql.Connection;
 import java.text.SimpleDateFormat;

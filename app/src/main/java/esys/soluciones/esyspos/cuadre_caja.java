@@ -14,7 +14,7 @@ import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.Toast;
 
-import com.example.esyspos.R;
+import esys.soluciones.esyspos.R;
 
 import java.util.ArrayList;
 import java.util.Calendar;

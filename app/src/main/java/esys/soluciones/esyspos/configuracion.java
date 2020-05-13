@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import com.example.esyspos.R;
+import esys.soluciones.esyspos.R;
 
 public class configuracion extends AppCompatActivity {
 

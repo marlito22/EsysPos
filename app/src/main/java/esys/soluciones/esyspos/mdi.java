@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.Toast;
 
-import com.example.esyspos.R;
+import esys.soluciones.esyspos.R;
 
 public class mdi extends AppCompatActivity {
 

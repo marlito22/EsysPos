@@ -5,7 +5,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.esyspos.R;
+import esys.soluciones.esyspos.R;
 
 public class popup_cliente_pedidos extends AppCompatActivity {
 

@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.example.esyspos.R;
+import esys.soluciones.esyspos.R;
 
 public class _pantalla_carga extends AppCompatActivity {
 

@@ -8,7 +8,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
 
-import com.example.esyspos.R;
+import esys.soluciones.esyspos.R;;
 
 public class consultar_referencia extends AppCompatActivity {
 

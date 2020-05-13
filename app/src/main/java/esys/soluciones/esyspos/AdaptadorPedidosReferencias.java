@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.esyspos.R;
+import esys.soluciones.esyspos.R;
 
 import java.util.List;
 

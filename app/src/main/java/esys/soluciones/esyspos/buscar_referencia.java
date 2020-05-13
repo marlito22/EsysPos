@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.example.esyspos.R;
+import esys.soluciones.esyspos.R;
 
 
 public class buscar_referencia extends AppCompatActivity {

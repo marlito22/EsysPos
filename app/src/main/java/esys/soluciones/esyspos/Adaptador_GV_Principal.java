@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.esyspos.R;
+import esys.soluciones.esyspos.R;
 
 public class Adaptador_GV_Principal extends BaseAdapter {
 

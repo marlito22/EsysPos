@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
-import com.example.esyspos.R;
+import esys.soluciones.esyspos.R;
 
 import java.util.HashMap;
 import java.util.List;
