@@ -1,5 +1,6 @@
 package esys.soluciones.esyspos;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +16,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.security.PrivateKey;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -627,6 +629,229 @@ public class Query_MySQL extends Application {
                 General.cargando(activity,false);
                 e.printStackTrace();
             }
+        }
+    }
+
+    public static class procedimientos_mysql extends AsyncTask<Void, Void, Void> {
+
+        private Activity activity;
+        private Statement stmt = null;
+        private consultar_terminal_mysql terminalMysql;
+        private int terminal;
+
+
+
+        public procedimientos_mysql(Activity activity) {
+            this.activity = activity;
+        }
+
+        public void setTerminal(int terminal) {
+            this.terminal = terminal;
+        }
+
+        @Override
+        protected Void doInBackground(Void... parametro) {
+            try {
+                stmt = General.connection.createStatement();
+            } catch (Exception e) {
+                Log.e("ERROR Conexion:",e.getMessage());
+            }
+
+            try {
+                stmt.executeUpdate("DROP FUNCTION SF_LOGIN;");
+            } catch (Exception e) {
+                Log.e("ERROR Conexion:",e.getMessage());
+            }
+
+            try {
+                stmt.executeUpdate("CREATE FUNCTION `SF_LOGIN`(\n" +
+                    "\t`USER` VARCHAR(50),\n" +
+                    "\t`PASS` VARCHAR(50)\n" +
+                    ")\n" +
+                    "RETURNS varchar(50) CHARSET utf8\n" +
+                    "LANGUAGE SQL\n" +
+                    "NOT DETERMINISTIC\n" +
+                    "CONTAINS SQL\n" +
+                    "SQL SECURITY DEFINER\n" +
+                    "COMMENT ''\n" +
+                    "BEGIN\n" +
+                    "\n" +
+                    "SET @ESTADO = (SELECT 1 FROM T80 \n" +
+                    "\t\tWHERE PERFIL = USER  AND CLAVE = MD5(CONCAT(MD5('P0S2'),MD5(PASS))));\n" +
+                    "\t\t\n" +
+                    "IF @ESTADO = 1 THEN\n" +
+                    "\treturn 'Conectado';\n" +
+                    "ELSE\n" +
+                    "\treturn 'Error De Conexion Verifique los Datos';\n" +
+                    "END IF;           \n" +
+                    "\n" +
+                    "END");
+            } catch (Exception e) {
+                Log.e("ERROR Conexion:",e.getMessage());
+            }
+
+            try {
+                stmt.executeUpdate("DROP PROCEDURE SP_CUADRE_CAJA_POR_CAJERO;");
+            } catch (Exception e) {
+                Log.e("ERROR Conexion:",e.getMessage());
+            }
+
+            try {
+                stmt.executeUpdate("CREATE PROCEDURE `SP_CUADRE_CAJA_POR_CAJERO`(\n" +
+                        "\tIN `_FECHA_INICIAL` VARCHAR(8),\n" +
+                        "\tIN `_FECHA_FINAL` VARCHAR(8)\n" +
+                        ")\n" +
+                        "LANGUAGE SQL\n" +
+                        "NOT DETERMINISTIC\n" +
+                        "CONTAINS SQL\n" +
+                        "SQL SECURITY DEFINER\n" +
+                        "COMMENT ''\n" +
+                        "BEGIN\n" +
+                        "SELECT PERFIL,FORPAG ,DESFORPAG, CONCAT('$ ',FORMAT(VALOR,0)) VALOR FROM (SELECT T84.PERFIL,T84.FORPAG ,T08.DESFORPAG, \n" +
+                        "SUM(IF(T84.DEBCRE=1 and T84.MARANU=0 ,T84.VALNET,0)) - SUM(IF(T84.DEBCRE=1 and T84.MARANU=0 ,T84.DESADI+T84.VALDES,0)) VALOR,\n" +
+                        "SUM(IF(T84.NUMDOC LIKE 'N%' AND T84.DEBCRE=2 AND MARANU =0 ,T84.VALNET,0)) AS DEVOLUCIONES,  \n" +
+                        "SUM(IF(T84.NUMDOC LIKE 'N%' AND T84.DEBCRE=2 AND MARANU =0 ,T84.DESADI,0)) AS DESDEV \n" +
+                        "FROM T08 LEFT JOIN T84 ON T08.FORPAG = T84.FORPAG \n" +
+                        "WHERE T84.FECDOC BETWEEN DATE_FORMAT(_FECHA_INICIAL,'%y%m%d')  AND DATE_FORMAT(_FECHA_FINAL,'%y%m%d')  AND T08.MUECAJA = 'S'\n" +
+                        "GROUP BY T84.PERFIL , T84.FORPAG,T08.DESFORPAG\n" +
+                        "UNION ALL \n" +
+                        "SELECT T52.PERFIL,'RC' FORPAG,'RECIBOS', SUM(IF (T52.MARANU =0 ,IFNULL(T52.VALTRA,0)- IFNULL(T52.RETENCION,0) - IFNULL(T52.VALDES,0) - IFNULL(t52.RETEICA ,0) - IFNULL(t52.RETEIVA ,0) ,0)) AS RECIBOS, \n" +
+                        "0 AS DEVOLUCIONES ,0 AS DESDEV \n" +
+                        "FROM T52 LEFT JOIN T80 ON T80.PERFIL = T52.PERFIL \n" +
+                        "WHERE T52.FECDOC BETWEEN DATE_FORMAT(_FECHA_INICIAL,'%y%m%d')  AND DATE_FORMAT(_FECHA_FINAL,'%y%m%d')   GROUP BY T52.PERFIL) AS TABLA ORDER BY PERFIL ;\n" +
+                        "END");
+            } catch (Exception e) {
+                Log.e("ERROR Conexion:",e.getMessage());
+            }
+
+            try {
+                stmt.executeUpdate("DROP PROCEDURE `SP_CAJEROS_CUADRE_DE_CAJA_POR_CAJERO`;");
+            } catch (Exception e) {
+                Log.e("ERROR Conexion:",e.getMessage());
+            }
+
+            try {
+                stmt.executeUpdate("CREATE PROCEDURE `SP_CAJEROS_CUADRE_DE_CAJA_POR_CAJERO`(\n" +
+                        "\tIN `_FECHA_INICIAL` VARCHAR(8),\n" +
+                        "\tIN `_FECHA_FINAL` VARCHAR(80)\n" +
+                        ")\n" +
+                        "LANGUAGE SQL\n" +
+                        "NOT DETERMINISTIC\n" +
+                        "CONTAINS SQL\n" +
+                        "SQL SECURITY DEFINER\n" +
+                        "COMMENT ''\n" +
+                        "BEGIN\n" +
+                        "SELECT PERFIL, FORMAT(SUM(VALOR),0) VALOR FROM (SELECT T84.PERFIL,SUM(IF(T84.DEBCRE=1 and T84.MARANU=0 ,T84.VALNET,0)) - SUM(IF(T84.DEBCRE=1 and T84.MARANU=0 ,T84.DESADI+T84.VALDES,0)) VALOR\n" +
+                        "FROM T08 LEFT JOIN T84 ON T08.FORPAG = T84.FORPAG \n" +
+                        "WHERE T84.FECDOC BETWEEN DATE_FORMAT(_FECHA_INICIAL,'%y%m%d')  AND DATE_FORMAT(_FECHA_FINAL,'%y%m%d') AND T08.MUECAJA = 'S'\n" +
+                        "GROUP BY T84.PERFIL , T84.FORPAG,T08.DESFORPAG\n" +
+                        "UNION ALL \n" +
+                        "SELECT T52.PERFIL,SUM(IF (T52.MARANU =0 ,IFNULL(T52.VALTRA,0)- IFNULL(T52.RETENCION,0) - IFNULL(T52.VALDES,0) - IFNULL(t52.RETEICA ,0) - IFNULL(t52.RETEIVA ,0) ,0)) AS RECIBOS\n" +
+                        "FROM T52 LEFT JOIN T80 ON T80.PERFIL = T52.PERFIL \n" +
+                        "WHERE T52.FECDOC BETWEEN DATE_FORMAT(_FECHA_INICIAL,'%y%m%d')  AND DATE_FORMAT(_FECHA_FINAL,'%y%m%d') GROUP BY T52.PERFIL) AS TABLA GROUP BY PERFIL ORDER BY PERFIL ;\n" +
+                        "END");
+            } catch (Exception e) {
+                Log.e("ERROR Conexion:",e.getMessage());
+            }
+
+
+            return null;
+        }
+        // onPostExecute displays the results of the AsyncTask.
+        @Override
+        protected void onPostExecute(Void result) {
+            try {
+                terminalMysql = new consultar_terminal_mysql(activity);
+                terminalMysql.setTerminal(terminal);
+                terminalMysql.execute();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static class consultar_terminal_mysql extends AsyncTask<String, Void, ResultSet> {
+
+        private Activity activity;
+        private int terminal;
+
+        public void setTerminal(int terminal) {
+            this.terminal = terminal;
+        }
+
+        public consultar_terminal_mysql(Activity activity) {
+            this.activity = activity;
+        }
+
+        @Override
+        protected ResultSet doInBackground(String... parametro) {
+            Statement stmt = null;
+            ResultSet rs = null;
+
+            try {
+                stmt = General.connection.createStatement();
+                rs = stmt.executeQuery("SELECT tv01.CODTER FROM tv01 WHERE tv01.CODTER = " + terminal );
+            } catch (NoClassDefFoundError e){
+                Log.e("Definicion de clase",e.getMessage());
+            } catch (Exception e) {
+                Log.e("ERROR Conexion:",e.getMessage());
+            }
+            return rs;
+        }
+        // onPostExecute displays the results of the AsyncTask.
+        @Override
+        protected void onPostExecute(ResultSet result) {
+            try {
+                if (result.first()){
+
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            General.cargando(activity,false);
+        }
+    }
+
+    public static class crear_terminal_mysql extends AsyncTask<Void, Void, Void> {
+
+        Activity activity;
+        PreparedStatement stmt = null;
+
+        public crear_terminal_mysql(Activity activity) {
+            this.activity = activity;
+        }
+
+        @Override
+        protected Void doInBackground(Void... parametro) {
+            try {
+                General.connection.setAutoCommit(false);
+                String sql = "INSERT INTO tv11 (IDTERMINAL, IDPEDIDO, FECHA, ESTADO, IDCLIENTE, COMENTARIO, TOTAL) VALUES(?,?,now(),'GUARDADO',?,?,?)";
+                stmt = General.connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
+                stmt.setString(1, General.Terminal);
+
+                stmt.executeUpdate();
+            } catch (Exception e) {
+                try {
+                    General.connection.rollback();
+                    General.cargando(activity,false);
+                } catch (SQLException ex) {
+                    General.cargando(activity,false);
+                    ex.printStackTrace();
+                    Toast.makeText(activity,e.getMessage(),Toast.LENGTH_LONG).show();
+                }
+                return null;
+            }
+            return null;
+        }
+        // onPostExecute displays the results of the AsyncTask.
+        @Override
+        protected void onPostExecute(Void result) {
+            try {
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            General.cargando(activity,false);
         }
     }
 

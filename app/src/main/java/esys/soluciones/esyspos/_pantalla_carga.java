@@ -30,7 +30,7 @@ public class _pantalla_carga extends AppCompatActivity {
         //iniciamos variables de la conexion
         General.sharpref = getSharedPreferences("Conta",MODE_PRIVATE);
         General.IniciarVariables();
-        General.IniciarConexionMysql(this);
+        General.IniciarConexionMysql(this,false,0);
         if(General.servidor.equals("")){
             Toast.makeText(getApplicationContext(),"Configure su Dispositivo > Configuracion",Toast.LENGTH_LONG).show();
         }

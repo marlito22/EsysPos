@@ -1,5 +1,6 @@
 package esys.soluciones.esyspos;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
@@ -11,10 +12,21 @@ public class MySQLConexion extends AsyncTask<Void,Integer,Boolean> {
 
     private Connection cn;
     private String error_mysql;
-    Context activity;
+    private Activity activity;
+    boolean procedimiento;
+    private Query_MySQL.procedimientos_mysql procedimientosMysql;
+    private int terminal;
 
-    public MySQLConexion(Context context) {
-        activity = context;
+    public void setProcedimiento(boolean procedimiento) {
+        this.procedimiento = procedimiento;
+    }
+
+    public MySQLConexion(Activity activity) {
+        this.activity = activity;
+    }
+
+    public void setTerminal(int terminal) {
+        this.terminal = terminal;
     }
 
     @Override
@@ -42,12 +54,18 @@ public class MySQLConexion extends AsyncTask<Void,Integer,Boolean> {
     protected void onPostExecute(Boolean resultado) {
         if(resultado) {
             General.connection = cn;
-            Toast.makeText(activity,"Conexion Estable" , Toast.LENGTH_SHORT).show();
+            if (procedimiento){
+                procedimientosMysql = new Query_MySQL.procedimientos_mysql(activity);
+                procedimientosMysql.setTerminal(terminal);
+                procedimientosMysql.execute();
+            }else{
+                Toast.makeText(activity,"Conexion Estable" , Toast.LENGTH_SHORT).show();
+                General.cargando(activity,false);
+            }
         }else {
             General.connection = null;
             Toast.makeText(activity,"Error de Conexion: \r\n\r\n " + error_mysql, Toast.LENGTH_SHORT).show();
         }
-        General.cargando(activity,false);
     }
 
 }

@@ -89,9 +89,12 @@ public class General extends Application {
         }
 
     }
-    public static void IniciarConexionMysql(Context context){
+    public static void IniciarConexionMysql(Activity context, boolean procedimientos, int terminal){
         IniciarVariables();
-        new MySQLConexion(context).execute();
+        MySQLConexion conexion = new MySQLConexion(context);
+        conexion.setProcedimiento(procedimientos);
+        conexion.setTerminal(terminal);
+        conexion.execute();
     }
     public static void CargarDatos(EditText txtServidor,EditText txtPuerto,EditText txtBD,EditText txtUser, EditText txtPass, Spinner terminal){
         txtServidor.setText(servidor);

@@ -23,6 +23,7 @@ public class configuracion extends AppCompatActivity {
     private String[] array = {"1","2","3","4","6","7","8","9"};
     private String DatoSpinner;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,14 +53,14 @@ public class configuracion extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 GuardarDatos(servidor,puerto,basedatos,usuario,contraseña,DatoSpinner,getApplicationContext());
-                IniciarConexionMysql(configuracion.this);
+                IniciarConexionMysql(configuracion.this,true, Integer.parseInt(DatoSpinner));
             }
         });
 
         cancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                activity.finish();
+               activity.finish();
             }
         });
 
