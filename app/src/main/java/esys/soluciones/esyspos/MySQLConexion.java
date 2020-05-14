@@ -65,6 +65,7 @@ public class MySQLConexion extends AsyncTask<Void,Integer,Boolean> {
         }else {
             General.connection = null;
             Toast.makeText(activity,"Error de Conexion: \r\n\r\n " + error_mysql, Toast.LENGTH_SHORT).show();
+            General.cargando(activity,false);
         }
     }
 
