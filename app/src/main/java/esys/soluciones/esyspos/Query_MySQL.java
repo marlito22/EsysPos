@@ -122,6 +122,7 @@ public class Query_MySQL extends Application {
         List<String> listGroup;
         HashMap<String,List<String>> listItem;
         MainAdapter adapter;
+        private String fechaini,fechafin;
 
         public cuadre_de_caja_por_cajero_mysql(Context activity) {
             this.activity = activity;
@@ -148,6 +149,8 @@ public class Query_MySQL extends Application {
         protected ResultSet doInBackground(String... parametro) {
             Statement stmt = null;
             ResultSet rs = null;
+            fechaini = parametro[0];
+            fechafin = parametro[1];
 
             try {
                 stmt = General.connection.createStatement();
@@ -168,6 +171,8 @@ public class Query_MySQL extends Application {
 
             formas_de_pago_mysql formas_de_pago_mysql =  new formas_de_pago_mysql();
             formas_de_pago_mysql.setList(list);
+            formas_de_pago_mysql.setFechaini(fechaini);
+            formas_de_pago_mysql.setFechafin(fechafin);
             formas_de_pago_mysql.setActivity(activity);
             formas_de_pago_mysql.setAdapter(adapter);
             formas_de_pago_mysql.setResultSet_totales(result);
@@ -185,6 +190,15 @@ public class Query_MySQL extends Application {
         List<String> listGroup;
         HashMap<String,List<String>> listItem;
         MainAdapter adapter;
+        private String fechaini,fechafin;
+
+        public void setFechaini(String fechaini) {
+            this.fechaini = fechaini;
+        }
+
+        public void setFechafin(String fechafin) {
+            this.fechafin = fechafin;
+        }
 
         public void setList(List<String> list) {
             this.list = list;
@@ -217,7 +231,7 @@ public class Query_MySQL extends Application {
 
             try {
                 stmt = General.connection.createStatement();
-                rs = stmt.executeQuery("CALL SP_CAJEROS_CUADRE_DE_CAJA_POR_CAJERO('20200320', '20200320')");
+                rs = stmt.executeQuery("CALL SP_CAJEROS_CUADRE_DE_CAJA_POR_CAJERO('"+fechaini+"', '"+fechafin+"')");
             } catch (NoClassDefFoundError e){
                 Log.e("Definicion de clase",e.getMessage());
             } catch (Exception e) {

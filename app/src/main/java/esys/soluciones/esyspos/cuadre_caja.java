@@ -34,7 +34,7 @@ public class cuadre_caja extends AppCompatActivity {
     List<String> listGroup;
     HashMap<String,List<String>> listItem;
     MainAdapter adapter;
-    Query_MySQL.cuadre_de_caja_por_cajero_mysql query_mySQL = new Query_MySQL.cuadre_de_caja_por_cajero_mysql(this);
+    Query_MySQL.cuadre_de_caja_por_cajero_mysql query_mySQL ;
 
     final int año = calendar.get(Calendar.YEAR);
     final int mes = calendar.get(Calendar.MONTH);
@@ -63,6 +63,7 @@ public class cuadre_caja extends AppCompatActivity {
                 listItem = new HashMap<>();
                 adapter = new MainAdapter(cuadre_caja.this,listGroup,listItem);
                 expandableListView_cuadre_caja.setAdapter(adapter);
+                query_mySQL = new Query_MySQL.cuadre_de_caja_por_cajero_mysql(cuadre_caja.this);
                 query_mySQL.setAdapter(adapter);
                 query_mySQL.setListGroup(listGroup);
                 query_mySQL.setListItem(listItem);
