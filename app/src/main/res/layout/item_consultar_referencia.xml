@@ -14,6 +14,7 @@
         android:paddingLeft="30dp"
         android:gravity="right"
         android:text="Nombre Referencia"
+        android:textColor="@color/colorTexto"
         android:textSize="24dp" />
 
 
@@ -24,6 +25,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorTexto"
             android:paddingRight="30dp"
             android:paddingLeft="30dp"
             android:text="Codigo"
@@ -37,6 +39,7 @@
             android:paddingRight="30dp"
             android:paddingLeft="30dp"
             android:text="Stock"
+            android:textColor="@color/colorTexto"
             android:layout_gravity="right"
             android:id="@+id/textview_stock"
             android:textSize="20dp"/>
@@ -60,6 +63,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/colorTexto"
                 android:textSize="18dp"
                 android:padding="3dp"
                 android:text="CO:"/>
@@ -67,6 +71,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textview_preuco"
+                android:textColor="@color/colorTexto"
                 android:text="$0,00"
                 android:padding="5dp"/>
         </LinearLayout>
@@ -79,6 +84,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
+                android:textColor="@color/colorTexto"
                 android:gravity="center"
                 android:padding="3dp"
                 android:text="V0:"/>
@@ -86,6 +92,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textview_preven"
+                android:textColor="@color/colorTexto"
                 android:text="$0,00"
                 android:padding="5dp"/>
         </LinearLayout>
@@ -112,6 +119,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="18dp"
+                android:textColor="@color/colorTexto"
                 android:padding="3dp"
                 android:text="V1:"/>
             <TextView
@@ -119,6 +127,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/textview_preven1"
                 android:text="$0,00"
+                android:textColor="@color/colorTexto"
                 android:padding="5dp"/>
         </LinearLayout>
 
@@ -130,12 +139,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
+                android:textColor="@color/colorTexto"
                 android:padding="3dp"
                 android:text="V2:"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textview_preven2"
+                android:textColor="@color/colorTexto"
                 android:text="$0,00"
                 android:padding="5dp"/>
         </LinearLayout>
@@ -162,12 +173,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
+                android:textColor="@color/colorTexto"
                 android:padding="3dp"
                 android:text="V3:"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textview_preven3"
+                android:textColor="@color/colorTexto"
                 android:text="$0,00"
                 android:padding="5dp"/>
         </LinearLayout>
@@ -179,12 +192,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/colorTexto"
                 android:textSize="18dp"
                 android:padding="3dp"
                 android:text="V4:"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/colorTexto"
                 android:id="@+id/textview_preven4"
                 android:text="$0,00"
                 android:padding="5dp"/>
