@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mdi"
+    android:background="@drawable/fondo_sin_logo"
     tools:context="esys.soluciones.esyspos.mdi">
 
 
@@ -12,7 +12,7 @@
         android:id="@+id/GV_principal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="215dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="23dp"
