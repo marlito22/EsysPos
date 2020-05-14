@@ -27,7 +27,6 @@ import java.util.List;
 
 public class Query_MySQL extends Application {
 
-
     public static class login_mysql extends AsyncTask<String, Void, ResultSet> {
 
         Context activity;
