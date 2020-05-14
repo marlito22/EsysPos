@@ -774,6 +774,7 @@ public class Query_MySQL extends Application {
 
         private Activity activity;
         private int terminal;
+        private crear_terminal_mysql terminalMysql;
 
         public void setTerminal(int terminal) {
             this.terminal = terminal;
@@ -802,13 +803,16 @@ public class Query_MySQL extends Application {
         @Override
         protected void onPostExecute(ResultSet result) {
             try {
-                if (result.first()){
-
+                if (result.first() == false){
+                    terminalMysql = new crear_terminal_mysql(activity);
+                    terminalMysql.setTermianl(terminal);
+                    terminalMysql.execute();
+                }else {
+                    General.cargando(activity,false);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            General.cargando(activity,false);
         }
     }
 
@@ -816,6 +820,11 @@ public class Query_MySQL extends Application {
 
         Activity activity;
         PreparedStatement stmt = null;
+        private int termianl;
+
+        public void setTermianl(int termianl) {
+            this.termianl = termianl;
+        }
 
         public crear_terminal_mysql(Activity activity) {
             this.activity = activity;
@@ -825,11 +834,11 @@ public class Query_MySQL extends Application {
         protected Void doInBackground(Void... parametro) {
             try {
                 General.connection.setAutoCommit(false);
-                String sql = "INSERT INTO tv11 (IDTERMINAL, IDPEDIDO, FECHA, ESTADO, IDCLIENTE, COMENTARIO, TOTAL) VALUES(?,?,now(),'GUARDADO',?,?,?)";
+                String sql = "INSERT INTO tv01 (CODTER, NOMTER, CODVEN) VALUES(?,'TERMINAL ESYSPOS', 0)";
                 stmt = General.connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
-                stmt.setString(1, General.Terminal);
-
+                stmt.setInt(1, termianl);
                 stmt.executeUpdate();
+                General.connection.commit();
             } catch (Exception e) {
                 try {
                     General.connection.rollback();
@@ -846,11 +855,6 @@ public class Query_MySQL extends Application {
         // onPostExecute displays the results of the AsyncTask.
         @Override
         protected void onPostExecute(Void result) {
-            try {
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
             General.cargando(activity,false);
         }
     }
