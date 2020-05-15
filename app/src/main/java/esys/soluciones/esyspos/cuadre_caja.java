@@ -59,6 +59,8 @@ public class cuadre_caja extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //llenar el ListView--------------------------------------------
+
+
                 listGroup = new ArrayList<>();
                 listItem = new HashMap<>();
                 adapter = new MainAdapter(cuadre_caja.this,listGroup,listItem);

@@ -822,6 +822,7 @@ public class Query_MySQL extends Application {
                     terminalMysql.execute();
                 }else {
                     General.cargando(activity,false);
+                    activity.finish();
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -869,6 +870,7 @@ public class Query_MySQL extends Application {
         @Override
         protected void onPostExecute(Void result) {
             General.cargando(activity,false);
+            activity.finish();
         }
     }
 
