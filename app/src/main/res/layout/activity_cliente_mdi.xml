@@ -32,43 +32,57 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintVertical_bias="0.04000002">
 
-        <EditText
-            android:id="@+id/txtServidor"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:autofillHints=""
-            android:backgroundTint="@color/colorTexto"
-            android:ems="20"
-            android:fontFamily="@font/carrois_gothic"
-            android:gravity="center"
-            android:hint="Servidor"
-            android:inputType="textPersonName"
-            android:textColor="@color/colorTexto"
-            android:textColorHint="@color/colorTexto"
-            android:textSize="24sp"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="184dp" />
+            android:padding="10dp">
+
+            <EditText
+                android:id="@+id/txtNitcli"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:autofillHints=""
+                android:backgroundTint="@color/colorTexto"
+                android:ems="20"
+                android:padding="5dp"
+                android:fontFamily="@font/carrois_gothic"
+                android:gravity="center"
+                android:hint="Identificacion"
+                android:background="@drawable/redondeo_imagenes"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorTexto"
+                android:textColorHint="@color/black_overlay"
+                android:textSize="24sp"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="184dp" />
+
+        </LinearLayout>
+
+
 
         <EditText
-            android:id="@+id/txtPuerto"
+            android:id="@+id/txtPrimerNombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:backgroundTint="@color/colorTexto"
             android:ems="20"
+            android:padding="5dp"
             android:fontFamily="@font/carrois_gothic"
             android:gravity="center"
-            android:hint="Puerto"
+            android:background="@drawable/redondeo_imagenes"
+            android:hint="Primer Nombre"
             android:inputType="numberDecimal"
             android:textColor="@color/colorTexto"
-            android:textColorHint="@color/colorTexto"
+            android:textColorHint="@color/black_overlay"
             android:textSize="24sp"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="184dp" />
 
         <EditText
-            android:id="@+id/txtBD"
+            android:id="@+id/txtSegundoNombre"
             android:layout_width="wrap_content"
             android:layout_height="64dp"
             android:layout_gravity="center"
@@ -76,7 +90,7 @@
             android:ems="20"
             android:fontFamily="@font/carrois_gothic"
             android:gravity="center"
-            android:hint="Base Datos"
+            android:hint="Segundo Nombre"
             android:inputType="text"
             android:textColor="@color/colorTexto"
             android:textColorHint="@color/colorTexto"
@@ -85,7 +99,7 @@
             tools:layout_editor_absoluteY="184dp" />
 
         <EditText
-            android:id="@+id/txtUsuario"
+            android:id="@+id/txtPrimerApellido"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -94,7 +108,7 @@
             android:ems="20"
             android:fontFamily="@font/carrois_gothic"
             android:gravity="center"
-            android:hint="Usuario"
+            android:hint="Primer Apellido"
             android:inputType="text"
             android:textColor="@color/colorTexto"
             android:textColorHint="@color/colorTexto"
@@ -103,7 +117,7 @@
             tools:layout_editor_absoluteY="184dp" />
 
         <EditText
-            android:id="@+id/txtContraseña"
+            android:id="@+id/txtSegundoApellido"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -112,13 +126,76 @@
             android:ems="20"
             android:fontFamily="@font/carrois_gothic"
             android:gravity="center"
-            android:hint="Contraseña"
-            android:inputType="textPassword"
+            android:hint="Segundo Apellido"
+            android:inputType="text"
             android:textColor="@color/colorTexto"
             android:textColorHint="@color/colorTexto"
             android:textSize="24sp"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="184dp" />
+
+        <EditText
+            android:id="@+id/txtDireccion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorTexto"
+            android:ems="20"
+            android:fontFamily="@font/carrois_gothic"
+            android:gravity="center"
+            android:hint="Direccion"
+            android:inputType="text"
+            android:textColor="@color/colorTexto"
+            android:textColorHint="@color/colorTexto"
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="184dp" />
+
+        <EditText
+            android:id="@+id/txtCorreo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorTexto"
+            android:ems="20"
+            android:fontFamily="@font/carrois_gothic"
+            android:gravity="center"
+            android:hint="E-Mail"
+            android:inputType="text"
+            android:textColor="@color/colorTexto"
+            android:textColorHint="@color/colorTexto"
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="184dp" />
+
+        <EditText
+            android:id="@+id/txtTelefono"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorTexto"
+            android:ems="20"
+            android:fontFamily="@font/carrois_gothic"
+            android:gravity="center"
+            android:hint="Tel/cel."
+            android:inputType="text"
+            android:textColor="@color/colorTexto"
+            android:textColorHint="@color/colorTexto"
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="184dp" />
+
+        <Spinner
+            android:id="@+id/spinner_terminal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:dropDownWidth="wrap_content"
+            android:spinnerMode="dialog" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
