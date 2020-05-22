@@ -135,9 +135,9 @@
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"
         android:layout_marginBottom="24dp"
-        android:background="@drawable/redondeo_imagenes"
+        android:background="@drawable/redondeo_imagenes2"
         android:text="Iniciar Sesion"
-        android:textColor="@android:color/background_dark"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -29,8 +29,8 @@ public class Query_MySQL extends Application {
 
     public static class login_mysql extends AsyncTask<String, Void, ResultSet> {
 
-        Context activity;
-        public login_mysql(Context context) {
+        Activity activity;
+        public login_mysql(Activity context) {
             activity = context;
         }
 
@@ -62,6 +62,7 @@ public class Query_MySQL extends Application {
                     if(result.getString(1).equals("Conectado")) {
                         Intent intent = new Intent(activity, mdi.class);
                         activity.startActivity(intent);
+                        activity.finish();
                     }else{
                         Toast.makeText(activity,"Contraseña Incorrecta",Toast.LENGTH_LONG).show();
                     }

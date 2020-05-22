@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mdi"
+    android:background="@drawable/fondo"
     tools:context=".configuracion">
 
     <LinearLayout
@@ -16,7 +16,7 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.71000004">
+        app:layout_constraintVertical_bias="0.85">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -46,28 +46,29 @@
         </LinearLayout>
 
         <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="5dp">
-        <EditText
-            android:background="@drawable/redondeo_imagenes"
-            android:padding="5dp"
-            android:id="@+id/txtPuerto"
-            android:layout_width="300dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:backgroundTint="@color/colorTexto"
-            android:ems="20"
-            android:fontFamily="@font/carrois_gothic"
-            android:gravity="center"
-            android:hint="Puerto"
-            android:inputType="numberDecimal"
-            android:textColor="@android:color/black"
-            android:textColorHint="@color/black_overlay"
-            android:textSize="24sp"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="184dp" />
-    </LinearLayout>
+            android:padding="5dp">
+
+            <EditText
+                android:id="@+id/txtPuerto"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/redondeo_imagenes"
+                android:backgroundTint="@color/colorTexto"
+                android:ems="20"
+                android:fontFamily="@font/carrois_gothic"
+                android:gravity="center"
+                android:hint="Puerto"
+                android:inputType="numberDecimal"
+                android:padding="5dp"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/black_overlay"
+                android:textSize="24sp"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="184dp" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -75,18 +76,18 @@
             android:padding="5dp">
 
             <EditText
-                android:background="@drawable/redondeo_imagenes"
-                android:padding="5dp"
                 android:id="@+id/txtBD"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:background="@drawable/redondeo_imagenes"
                 android:backgroundTint="@color/colorTexto"
                 android:ems="20"
                 android:fontFamily="@font/carrois_gothic"
                 android:gravity="center"
                 android:hint="Base Datos"
                 android:inputType="text"
+                android:padding="5dp"
                 android:textColor="@android:color/black"
                 android:textColorHint="@color/black_overlay"
                 android:textSize="24sp"
@@ -101,19 +102,19 @@
             android:padding="5dp">
 
             <EditText
-                android:padding="5dp"
-                android:background="@drawable/redondeo_imagenes"
                 android:id="@+id/txtUsuario"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
+                android:background="@drawable/redondeo_imagenes"
                 android:backgroundTint="@color/colorTexto"
                 android:ems="20"
                 android:fontFamily="@font/carrois_gothic"
                 android:gravity="center"
                 android:hint="Usuario"
                 android:inputType="text"
+                android:padding="5dp"
                 android:textColor="@android:color/black"
                 android:textColorHint="@color/black_overlay"
                 android:textSize="24sp"
@@ -128,19 +129,19 @@
             android:padding="5dp">
 
             <EditText
-                android:background="@drawable/redondeo_imagenes"
-                android:padding="5dp"
                 android:id="@+id/txtContraseña"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
+                android:background="@drawable/redondeo_imagenes"
                 android:backgroundTint="@color/colorTexto"
                 android:ems="20"
                 android:fontFamily="@font/carrois_gothic"
                 android:gravity="center"
                 android:hint="Contraseña"
                 android:inputType="textPassword"
+                android:padding="5dp"
                 android:textColor="@android:color/black"
                 android:textColorHint="@color/black_overlay"
                 android:textSize="24sp"
@@ -148,11 +149,6 @@
                 tools:layout_editor_absoluteY="184dp" />
 
         </LinearLayout>
-
-
-
-
-
 
 
         <LinearLayout
@@ -199,7 +195,7 @@
                 android:background="@drawable/redondeo_imagenes"
                 android:fontFamily="@font/carrois_gothic"
                 android:text="Guardar"
-                android:textColor="@android:color/black"
+                android:textColor="#3A0F42"
                 android:textStyle="bold" />
 
             <Button
@@ -209,10 +205,10 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/redondeo_imagenes"
+                android:background="@drawable/redondeo_imagenes2"
                 android:fontFamily="@font/carrois_gothic"
                 android:text="Atras"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/white"
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>

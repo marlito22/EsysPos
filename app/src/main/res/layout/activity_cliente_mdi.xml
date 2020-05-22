@@ -7,227 +7,337 @@
     android:background="@drawable/fondo_sin_logo"
     tools:context=".cliente_mdi">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CREAR CLIENETE"
-        android:textColor="@color/colorTexto"
-        android:fontFamily="@font/carrois_gothic"
-        android:paddingTop="20dp"
-        android:textSize="32dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout8"
-        android:layout_width="0dp"
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.04000002">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:padding="10dp">
+            android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/txtNitcli"
+
+            <ImageView
+                android:id="@+id/imageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:autofillHints=""
-                android:backgroundTint="@color/colorTexto"
-                android:ems="20"
-                android:padding="5dp"
+                android:background="@drawable/logo50x50"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:fontFamily="@font/carrois_gothic"
                 android:gravity="center"
-                android:hint="Identificacion"
-                android:background="@drawable/redondeo_imagenes"
-                android:inputType="textPersonName"
+                android:paddingTop="20dp"
+                android:text="CREAR CLIENETE"
                 android:textColor="@color/colorTexto"
-                android:textColorHint="@color/black_overlay"
-                android:textSize="24sp"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="184dp" />
+                android:textSize="32dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2"
+                app:layout_constraintVertical_bias="0.04000002">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="5dp">
+
+                    <EditText
+                        android:id="@+id/txtNitcli"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:autofillHints=""
+                        android:background="@drawable/redondeo_imagenes"
+                        android:backgroundTint="@color/colorTexto"
+                        android:ems="20"
+                        android:fontFamily="@font/carrois_gothic"
+                        android:gravity="center"
+                        android:hint="Identificacion"
+                        android:inputType="textPersonName"
+                        android:padding="5dp"
+                        android:textColor="@color/colorTexto"
+                        android:textColorHint="@color/black_overlay"
+                        android:textSize="24sp"
+                        tools:layout_editor_absoluteX="16dp"
+                        tools:layout_editor_absoluteY="184dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="5dp">
+
+                    <EditText
+                        android:id="@+id/txtPrimerNombre"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/redondeo_imagenes"
+                        android:backgroundTint="@color/colorTexto"
+                        android:ems="20"
+                        android:fontFamily="@font/carrois_gothic"
+                        android:gravity="center"
+                        android:hint="Primer Nombre"
+                        android:inputType="numberDecimal"
+                        android:padding="5dp"
+                        android:textColor="@color/colorTexto"
+                        android:textColorHint="@color/black_overlay"
+                        android:textSize="24sp"
+                        tools:layout_editor_absoluteX="16dp"
+                        tools:layout_editor_absoluteY="184dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="5dp">
+
+                    <EditText
+                        android:id="@+id/txtSegundoNombre"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/redondeo_imagenes"
+                        android:backgroundTint="@color/colorTexto"
+                        android:ems="20"
+                        android:fontFamily="@font/carrois_gothic"
+                        android:gravity="center"
+                        android:hint="Segundo Nombre"
+                        android:inputType="text"
+                        android:padding="5dp"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@color/black_overlay"
+                        android:textSize="24sp"
+                        tools:layout_editor_absoluteX="16dp"
+                        tools:layout_editor_absoluteY="184dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="5dp">
+
+                    <EditText
+                        android:id="@+id/txtPrimerApellido"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@drawable/redondeo_imagenes"
+                        android:backgroundTint="@color/colorTexto"
+                        android:ems="20"
+                        android:fontFamily="@font/carrois_gothic"
+                        android:gravity="center"
+                        android:hint="Primer Apellido"
+                        android:inputType="text"
+                        android:padding="5dp"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@color/black_overlay"
+                        android:textSize="24sp"
+                        tools:layout_editor_absoluteX="16dp"
+                        tools:layout_editor_absoluteY="184dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="5dp">
+
+                    <EditText
+                        android:id="@+id/txtSegundoApellido"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@drawable/redondeo_imagenes"
+                        android:backgroundTint="@color/colorTexto"
+                        android:ems="20"
+                        android:fontFamily="@font/carrois_gothic"
+                        android:gravity="center"
+                        android:hint="Segundo Apellido"
+                        android:inputType="text"
+                        android:padding="5dp"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@color/black_overlay"
+                        android:textSize="24sp"
+                        tools:layout_editor_absoluteX="16dp"
+                        tools:layout_editor_absoluteY="184dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="5dp">
+
+                    <EditText
+                        android:id="@+id/txtDireccion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@drawable/redondeo_imagenes"
+                        android:backgroundTint="@color/colorTexto"
+                        android:ems="20"
+                        android:fontFamily="@font/carrois_gothic"
+                        android:gravity="center"
+                        android:hint="Direccion"
+                        android:inputType="text"
+                        android:padding="5dp"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@color/black_overlay"
+                        android:textSize="24sp"
+                        tools:layout_editor_absoluteX="16dp"
+                        tools:layout_editor_absoluteY="184dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="5dp">
+
+                    <EditText
+                        android:id="@+id/txtCorreo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@drawable/redondeo_imagenes"
+                        android:backgroundTint="@color/colorTexto"
+                        android:ems="20"
+                        android:fontFamily="@font/carrois_gothic"
+                        android:gravity="center"
+                        android:hint="E-Mail"
+                        android:inputType="text"
+                        android:padding="5dp"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@color/black_overlay"
+                        android:textSize="24sp"
+                        tools:layout_editor_absoluteX="16dp"
+                        tools:layout_editor_absoluteY="184dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="5dp">
+
+                    <EditText
+                        android:id="@+id/txtTelefono"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@drawable/redondeo_imagenes"
+                        android:backgroundTint="@color/colorTexto"
+                        android:ems="20"
+                        android:fontFamily="@font/carrois_gothic"
+                        android:gravity="center"
+                        android:hint="Tel/cel."
+                        android:inputType="text"
+                        android:padding="5dp"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@color/black_overlay"
+                        android:textSize="24sp"
+                        tools:layout_editor_absoluteX="16dp"
+                        tools:layout_editor_absoluteY="184dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="5dp">
+
+                    <Spinner
+                        android:id="@+id/spinner_terminal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:dropDownWidth="wrap_content"
+                        android:padding="5dp"
+                        android:spinnerMode="dialog" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
 
         </LinearLayout>
+    </ScrollView>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="40dp"
+        android:paddingTop="20dp"
+        android:paddingRight="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView3"
+        app:layout_constraintVertical_bias="0.0">
 
-
-        <EditText
-            android:id="@+id/txtPrimerNombre"
+        <Button
+            android:id="@+id/btnGuardar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:backgroundTint="@color/colorTexto"
-            android:ems="20"
-            android:padding="5dp"
-            android:fontFamily="@font/carrois_gothic"
-            android:gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
             android:background="@drawable/redondeo_imagenes"
-            android:hint="Primer Nombre"
-            android:inputType="numberDecimal"
-            android:textColor="@color/colorTexto"
-            android:textColorHint="@color/black_overlay"
-            android:textSize="24sp"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="184dp" />
-
-        <EditText
-            android:id="@+id/txtSegundoNombre"
-            android:layout_width="wrap_content"
-            android:layout_height="64dp"
-            android:layout_gravity="center"
-            android:backgroundTint="@color/colorTexto"
-            android:ems="20"
             android:fontFamily="@font/carrois_gothic"
-            android:gravity="center"
-            android:hint="Segundo Nombre"
-            android:inputType="text"
-            android:textColor="@color/colorTexto"
-            android:textColorHint="@color/colorTexto"
-            android:textSize="24sp"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="184dp" />
+            android:text="Guardar"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/txtPrimerApellido"
+        <Button
+            android:id="@+id/btnAtras"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
-            android:backgroundTint="@color/colorTexto"
-            android:ems="20"
+            android:background="@drawable/redondeo_imagenes"
             android:fontFamily="@font/carrois_gothic"
-            android:gravity="center"
-            android:hint="Primer Apellido"
-            android:inputType="text"
-            android:textColor="@color/colorTexto"
-            android:textColorHint="@color/colorTexto"
-            android:textSize="24sp"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="184dp" />
-
-        <EditText
-            android:id="@+id/txtSegundoApellido"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:backgroundTint="@color/colorTexto"
-            android:ems="20"
-            android:fontFamily="@font/carrois_gothic"
-            android:gravity="center"
-            android:hint="Segundo Apellido"
-            android:inputType="text"
-            android:textColor="@color/colorTexto"
-            android:textColorHint="@color/colorTexto"
-            android:textSize="24sp"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="184dp" />
-
-        <EditText
-            android:id="@+id/txtDireccion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:backgroundTint="@color/colorTexto"
-            android:ems="20"
-            android:fontFamily="@font/carrois_gothic"
-            android:gravity="center"
-            android:hint="Direccion"
-            android:inputType="text"
-            android:textColor="@color/colorTexto"
-            android:textColorHint="@color/colorTexto"
-            android:textSize="24sp"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="184dp" />
-
-        <EditText
-            android:id="@+id/txtCorreo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:backgroundTint="@color/colorTexto"
-            android:ems="20"
-            android:fontFamily="@font/carrois_gothic"
-            android:gravity="center"
-            android:hint="E-Mail"
-            android:inputType="text"
-            android:textColor="@color/colorTexto"
-            android:textColorHint="@color/colorTexto"
-            android:textSize="24sp"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="184dp" />
-
-        <EditText
-            android:id="@+id/txtTelefono"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:backgroundTint="@color/colorTexto"
-            android:ems="20"
-            android:fontFamily="@font/carrois_gothic"
-            android:gravity="center"
-            android:hint="Tel/cel."
-            android:inputType="text"
-            android:textColor="@color/colorTexto"
-            android:textColorHint="@color/colorTexto"
-            android:textSize="24sp"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="184dp" />
-
-        <Spinner
-            android:id="@+id/spinner_terminal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:dropDownWidth="wrap_content"
-            android:spinnerMode="dialog" />
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:paddingTop="20dp">
-
-            <Button
-                android:id="@+id/btnGuardar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/redondeo_imagenes"
-                android:fontFamily="@font/carrois_gothic"
-                android:text="Guardar"
-                android:textColor="@android:color/black"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/btnAtras"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/redondeo_imagenes"
-                android:fontFamily="@font/carrois_gothic"
-                android:text="Atras"
-                android:textColor="@android:color/black"
-                android:textStyle="bold" />
-        </LinearLayout>
+            android:text="Atras"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
