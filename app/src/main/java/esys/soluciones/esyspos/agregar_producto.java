@@ -11,9 +11,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import esys.soluciones.esyspos.R;
-
+import static esys.soluciones.esyspos.General.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -107,22 +105,28 @@ public class agregar_producto {
                 try{
                     int cantidad = Integer.parseInt(txtCantidadProducto.getText().toString());
                     int codigo = datosConsultarReferencias.get(rv_BuscarReferencia.getChildAdapterPosition(view_registro_producto)).getCodigoref();
-                    String precio = datosConsultarReferencias.get(rv_BuscarReferencia.getChildAdapterPosition(view_registro_producto)).getPreven().replace(",","");
+                    String precio = FormatoMoneda.format(FormatoNumero(datosConsultarReferencias.get(rv_BuscarReferencia.getChildAdapterPosition(view_registro_producto)).getPreven()));
                     String nombre = datosConsultarReferencias.get(rv_BuscarReferencia.getChildAdapterPosition(view_registro_producto)).getNomref();
+                    String total_precio = FormatoMoneda.format(FormatoNumero(precio) * cantidad) ;
+                    boolean NuevoProducto = true;
 
                     if(pedidosReferencias.getItemCount() == 0){
-                        datosReferenciasPedidos.add( new DatosReferenciasPedidos(codigo,cantidad,nombre,precio));
+                        datosReferenciasPedidos.add( new DatosReferenciasPedidos(codigo,cantidad,nombre,precio,total_precio));
                     }else{
                         for (int i=0; i < pedidosReferencias.getItemCount();i++){
                             if(pedidosReferencias.datosReferenciasPedidos.get(i).getCodigoref() == codigo){
                                 pedidosReferencias.datosReferenciasPedidos.get(i).setCantidad(cantidad);
-                            }else{
-                                datosReferenciasPedidos.add( new DatosReferenciasPedidos(codigo,cantidad,nombre,precio));
+                                pedidosReferencias.datosReferenciasPedidos.get(i).setTotal(total_precio);
+                                NuevoProducto = false;
+                                break;
                             }
                         }
+                        if (NuevoProducto){
+                            datosReferenciasPedidos.add( new DatosReferenciasPedidos(codigo,cantidad,nombre,precio,total_precio));
+                        }
                     }
-                    total_referencia = Double.parseDouble(total.getText().toString().replace(",","")) + (cantidad * Double.parseDouble(precio));
-                    total.setText(""+total_referencia);
+                    total_referencia = FormatoNumero(total.getText().toString()) + FormatoNumero(total_precio);
+                    total.setText(FormatoMoneda.format(total_referencia));
                     pedidosReferencias = new AdaptadorPedidosReferencias(activity,datosReferenciasPedidos);
                     rv_pedidos.setAdapter(pedidosReferencias);
                     dialog_cantidad.dismiss();

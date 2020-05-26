@@ -45,6 +45,8 @@ public class mdi extends AppCompatActivity {
                         CrearPedidoCliente();
                         break;
                     case 2:
+                        intent = new Intent(mdi.this, cliente_mdi.class);
+                        startActivity(intent);
                         break;
                     case 3:
                         intent = new Intent(mdi.this, consultar_referencia.class);

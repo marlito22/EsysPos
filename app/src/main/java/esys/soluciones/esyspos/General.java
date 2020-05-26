@@ -16,6 +16,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import java.sql.Connection;
+import java.text.NumberFormat;
 
 /**
  * Created by PROGRAMADOR2 on 01/11/2017.
@@ -25,6 +26,8 @@ import java.sql.Connection;
 public class General extends Application {
 
     //VARIABLES GOBALES
+    public static final NumberFormat FormatoNumero = NumberFormat.getNumberInstance();
+    public static final NumberFormat FormatoMoneda = NumberFormat.getCurrencyInstance();
     public static SharedPreferences sharpref;
     public static String servidor;
     public static String puerto ;
@@ -39,7 +42,6 @@ public class General extends Application {
     //public static Context activity_actual;
 
     private static ProgressDialog progressDialog = null;
-
     public static void Permisos(Activity activity){
         if (ContextCompat.checkSelfPermission(activity, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.CAMERA},CODIGO_PARA_AUTORIZAR_CAMARA);
@@ -61,7 +63,6 @@ public class General extends Application {
             ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},CODIGO_PARA_AUTORIZAR_CAMARA);
         }
     }
-
     public static void cargando(Context context, boolean modo) {
         if(modo){
             progressDialog = new ProgressDialog(context);
@@ -74,7 +75,6 @@ public class General extends Application {
             progressDialog.dismiss();
         }
     }
-
     public static void IniciarVariables(){
 
         try {
@@ -121,7 +121,6 @@ public class General extends Application {
             error.show();
         }
     }
-
     public static int obtenerPosicionItem(Spinner spinner, String terminal) {
         int posicion = 0;
         for (int i = 0; i < spinner.getCount(); i++) {
@@ -131,5 +130,16 @@ public class General extends Application {
         }
         return posicion;
     }
+    public static double FormatoNumero(String numero){
+        Double Resultado = 0.0;
+
+        if(numero == null) {
+            Resultado = 0.0;
+        } else {
+            Resultado = Double.parseDouble(numero.replaceAll("[(az) | (AZ) | ($ ,)]", ""));
+        }
+        return Resultado ;
+    }
+
 
 }

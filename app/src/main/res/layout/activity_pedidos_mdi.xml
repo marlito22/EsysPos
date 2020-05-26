@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:padding="3dp"
     android:layout_height="match_parent"
     android:background="@drawable/fondo_sin_logo"
     android:orientation="vertical"
@@ -16,8 +17,9 @@
             android:id="@+id/linearLayout3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
             android:orientation="horizontal"
-            android:padding="20dp"
+            android:background="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -27,43 +29,33 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center|top"
                 android:layout_weight="1"
-                android:background="@drawable/redondeo_text"
                 android:fontFamily="@font/carrois_gothic"
                 android:gravity="center"
-                android:text="Nuevo Pedido"
+                android:text="PEDIDOS"
                 android:textAllCaps="false"
-                android:textColor="@android:color/white"
+                android:textColor="@color/colorTexto"
                 android:textSize="28sp"
                 android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/btnAregarProducto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@android:drawable/ic_input_add" />
 
 
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/linearLayout4"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingLeft="20dp"
-            android:paddingBottom="5dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:background="@drawable/redondeo_text"
-                android:fontFamily="@font/carrois_gothic"
-                android:gravity="center"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:text="Cliente:"
-                android:textAllCaps="false"
-                android:textColor="@android:color/white"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+
 
             <TextView
                 android:id="@+id/txtNombreClientePedido"
@@ -72,13 +64,13 @@
                 android:layout_gravity="center|top"
                 android:layout_weight="1"
                 android:fontFamily="@font/carrois_gothic"
-                android:gravity="left"
+                android:gravity="center"
                 android:paddingLeft="4dp"
                 android:paddingRight="20dp"
                 android:text="Marlon Fernando Bedoya Martinez"
                 android:textAllCaps="false"
-                android:textColor="@android:color/white"
-                android:textSize="14sp"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
 
@@ -86,45 +78,23 @@
 
         <LinearLayout
             android:id="@+id/linearLayout5"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingLeft="20dp"
+            android:orientation="vertical"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center|top"
-                android:layout_weight="1"
-                android:background="@drawable/redondeo_text"
-                android:fontFamily="@font/carrois_gothic"
-                android:gravity="center"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:text="Numero de Ultimo Pedido:"
-                android:textAllCaps="false"
-                android:textColor="@android:color/white"
-                android:textSize="14sp"
-                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textview_IdPedido"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center|top"
-                android:layout_weight="1"
+                android:layout_gravity="center"
                 android:fontFamily="@font/carrois_gothic"
                 android:gravity="center"
-                android:paddingLeft="4dp"
-                android:paddingRight="20dp"
                 android:text="1"
-                android:textAllCaps="false"
-                android:textColor="@android:color/white"
+                android:textColor="@color/colorPrimary"
                 android:textSize="14sp"
                 android:textStyle="bold" />
-
 
         </LinearLayout>
 
@@ -132,7 +102,7 @@
             android:id="@+id/recyclerview_buscar_referencia_pedidos"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:padding="20sp"
+            android:padding="5sp"
             android:textColor="@color/colorTexto"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout6"
             app:layout_constraintEnd_toEndOf="parent"
@@ -148,12 +118,7 @@
             app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
             app:layout_constraintEnd_toEndOf="parent">
 
-            <ImageButton
-                android:id="@+id/btnAregarProducto"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:background="@drawable/boton_agregar" />
+
 
         </LinearLayout>
 
@@ -162,7 +127,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
@@ -170,30 +134,18 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="right">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right|center"
-                    android:paddingLeft="32dp"
-                    android:text="Total:"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/white"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                android:layout_gravity="center">
 
                 <TextView
                     android:id="@+id/textview_TotalPedido"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right|center"
-                    android:gravity="right"
+                    android:gravity="center"
                     android:text="0"
-                    android:textSize="32dp"
-                    android:paddingRight="20dp"
                     android:textAllCaps="false"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="32dp"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -203,13 +155,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:layout_marginLeft="100dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="100dp"
-                android:layout_marginBottom="24dp"
-                android:background="@drawable/redondeo_imagenes"
+                android:background="@color/colorPrimary"
                 android:text="Enviar"
-                android:textColor="@android:color/background_dark" />
+                android:textColor="@color/colorTexto" />
 
         </LinearLayout>
 

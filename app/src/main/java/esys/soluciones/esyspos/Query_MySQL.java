@@ -314,8 +314,6 @@ public class Query_MySQL extends Application {
                 stmt = General.connection.createStatement();
                 rs = stmt.executeQuery("SELECT t43.NOMREF, t43.CODIGOREF , \n" +
                         "format(t43.PREUCO,0), format(t43.PREVEN,0), \n" +
-                        "format(t43.PREVEN1,0), format(t43.PREVEN2,0), \n" +
-                        "format(t43.PREVEN3,0), format(t43.PREVEN4,0),\n" +
                         "SF_INVENTARIO_FINAL_ANDROID(t43.CODIGOREF) \n" +
                         "FROM t43 WHERE t43.MARANU = 0");
             } catch (NoClassDefFoundError e){
@@ -340,11 +338,7 @@ public class Query_MySQL extends Application {
                             resultSet.getInt(2),
                             resultSet.getString(3),
                             resultSet.getString(4),
-                            resultSet.getString(5),
-                            resultSet.getString(6),
-                            resultSet.getString(7),
-                            resultSet.getString(8),
-                            resultSet.getString(9)));
+                            resultSet.getString(5)));
                 }
                 BuscarReferencias = new AdaptadorConsultarReferencias(activity,datosConsultarReferencias);
                 rv_BuscarReferencia.setAdapter(BuscarReferencias);
@@ -445,8 +439,6 @@ public class Query_MySQL extends Application {
                 stmt = General.connection.createStatement();
                 rs = stmt.executeQuery("SELECT t43.NOMREF, t43.CODIGOREF , \n" +
                         "format(t43.PREUCO,0), format(t43.PREVEN,0), \n" +
-                        "format(t43.PREVEN1,0), format(t43.PREVEN2,0), \n" +
-                        "format(t43.PREVEN3,0), format(t43.PREVEN4,0),\n" +
                         "SF_INVENTARIO_FINAL_ANDROID(t43.CODIGOREF) \n" +
                         "FROM t43 WHERE t43.MARANU = 0");
             } catch (NoClassDefFoundError e){
@@ -466,11 +458,7 @@ public class Query_MySQL extends Application {
                             resultSet.getInt(2),
                             resultSet.getString(3),
                             resultSet.getString(4),
-                            resultSet.getString(5),
-                            resultSet.getString(6),
-                            resultSet.getString(7),
-                            resultSet.getString(8),
-                            resultSet.getString(9)));
+                            resultSet.getString(5)));
                 }
                 consecutivoPedidoMysql.execute();
             }catch (Exception e){

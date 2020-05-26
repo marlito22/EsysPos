@@ -3,87 +3,112 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/txt_nombre_referencia_pedidos"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorTexto"
             android:textStyle="bold"
-            android:textSize="16dp"
+            android:textSize="14dp"
             android:padding="5dp"
             android:text="Nombre de referencia" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:background="@color/colorTexto"
+        android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:textStyle="bold"
-            android:textColor="@color/colorTexto"
-            android:textSize="14dp"
-            android:text="Codigo:" />
-
-
-        <TextView
-            android:id="@+id/txt_codigo_referencia_pedidos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:textColor="@color/colorTexto"
-            android:layout_gravity="center"
-            android:textSize="12dp"
-            android:text="0000001" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:textColor="@color/colorTexto"
-            android:textStyle="bold"
-            android:textSize="14dp"
-            android:text="Cantidad:" />
-
-
-        <TextView
-            android:id="@+id/txt_cantidad_referencia_pedidos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="12dp"
-            android:textColor="@color/colorTexto"
-            android:layout_gravity="center"
-            android:padding="5dp"
-            android:text="1" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:textColor="@color/colorTexto"
-            android:textStyle="bold"
-            android:textSize="14dp"
-            android:text="Precio: $" />
-
-        <TextView
-            android:id="@+id/txt_precio_referencia_pedidos"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="12dp"
-            android:textColor="@color/colorTexto"
-            android:layout_gravity="center"
-            android:padding="5dp"
-            android:text="0,00" />
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14dp"
+                android:text="Codigo:" />
+
+            <TextView
+                android:id="@+id/txt_codigo_referencia_pedidos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:textColor="@color/colorPrimary"
+                android:layout_gravity="center"
+                android:textSize="12dp"
+                android:text="0000001" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:textSize="14dp"
+                android:text="Cantidad:" />
+
+            <TextView
+                android:id="@+id/txt_cantidad_referencia_pedidos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:textColor="@color/colorPrimary"
+                android:layout_gravity="center"
+                android:padding="5dp"
+                android:text="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:textSize="14dp"
+                android:text="Precio: " />
+
+            <TextView
+                android:id="@+id/txt_precio_referencia_pedidos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:textColor="@color/colorPrimary"
+                android:layout_gravity="center"
+                android:padding="5dp"
+                android:text="0,00" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txt_total_referencia_pedidos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:textColor="@color/colorPrimary"
+                android:layout_gravity="right"
+                android:padding="5dp"
+                android:text="0,00" />
+
+        </LinearLayout>
+
+
 
     </LinearLayout>
 

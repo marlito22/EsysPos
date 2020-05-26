@@ -8,41 +8,38 @@
 
     <TextView
         android:id="@+id/textview_nomref"
+        android:background="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingRight="30dp"
-        android:paddingLeft="30dp"
-        android:gravity="right"
+        android:paddingLeft="10dp"
+        android:gravity="left"
         android:text="Nombre Referencia"
         android:textColor="@color/colorTexto"
-        android:textSize="24dp" />
+        android:textSize="14dp" />
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="right">
+        android:layout_gravity="left">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorTexto"
+            android:textColor="@color/colorPrimary"
             android:paddingRight="30dp"
-            android:paddingLeft="30dp"
             android:text="Codigo"
-            android:layout_gravity="right"
-            android:id="@+id/textview_codigoref"
-            android:textSize="20dp"/>
+            android:layout_gravity="left"
+            android:id="@+id/textview_codigoref"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingRight="30dp"
-            android:paddingLeft="30dp"
             android:text="Stock"
-            android:textColor="@color/colorTexto"
-            android:layout_gravity="right"
-            android:id="@+id/textview_stock"
-            android:textSize="20dp"/>
+            android:textColor="@color/colorPrimary"
+            android:layout_gravity="left"
+            android:id="@+id/textview_stock"/>
 
     </LinearLayout>
 
@@ -50,165 +47,53 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="left"
         android:orientation="horizontal"
-        android:paddingRight="20dp"
-        android:paddingLeft="20dp"
-        android:layout_gravity="right">
+        android:paddingRight="20dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingRight="20dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorTexto"
-                android:textSize="18dp"
-                android:padding="3dp"
-                android:text="CO:"/>
+                android:text="Costo:"
+                android:textColor="@color/colorPrimary"/>
+
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/textview_preuco"
-                android:textColor="@color/colorTexto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="$0,00"
-                android:padding="5dp"/>
+                android:textColor="@color/colorPrimary" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="18dp"
-                android:textColor="@color/colorTexto"
                 android:gravity="center"
-                android:padding="3dp"
-                android:text="V0:"/>
+                android:text="Venta Publico:"
+                android:textColor="@color/colorPrimary"/>
+
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/textview_preven"
-                android:textColor="@color/colorTexto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="$0,00"
-                android:padding="5dp"/>
-        </LinearLayout>
-
-
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingRight="20dp"
-        android:paddingLeft="20dp"
-        android:layout_gravity="right">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textSize="18dp"
-                android:textColor="@color/colorTexto"
-                android:padding="3dp"
-                android:text="V1:"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textview_preven1"
-                android:text="$0,00"
-                android:textColor="@color/colorTexto"
-                android:padding="5dp"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18dp"
-                android:textColor="@color/colorTexto"
-                android:padding="3dp"
-                android:text="V2:"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textview_preven2"
-                android:textColor="@color/colorTexto"
-                android:text="$0,00"
-                android:padding="5dp"/>
-        </LinearLayout>
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingRight="20dp"
-        android:paddingLeft="20dp"
-        android:paddingBottom="10dp"
-        android:layout_gravity="right">
-
-
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18dp"
-                android:textColor="@color/colorTexto"
-                android:padding="3dp"
-                android:text="V3:"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textview_preven3"
-                android:textColor="@color/colorTexto"
-                android:text="$0,00"
-                android:padding="5dp"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorTexto"
-                android:textSize="18dp"
-                android:padding="3dp"
-                android:text="V4:"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorTexto"
-                android:id="@+id/textview_preven4"
-                android:text="$0,00"
-                android:padding="5dp"/>
+                android:textColor="@color/colorPrimary" />
         </LinearLayout>
 
 
     </LinearLayout>
-
-
 
 
 </LinearLayout>

@@ -9,9 +9,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import esys.soluciones.esyspos.R;
-
 import java.util.List;
+
+import static esys.soluciones.esyspos.General.*;
 
 public class AdaptadorPedidosReferencias extends RecyclerView.Adapter<AdaptadorPedidosReferencias.PedidosReferenciasHolder>
         implements View.OnClickListener{
@@ -36,8 +36,9 @@ public class AdaptadorPedidosReferencias extends RecyclerView.Adapter<AdaptadorP
     public void onBindViewHolder(@NonNull PedidosReferenciasHolder holder, int position) {
         holder.txtNomref.setText("►"+datosReferenciasPedidos.get(position).getNomref());
         holder.txtcodigoref.setText(""+datosReferenciasPedidos.get(position).getCodigoref());
-        holder.txtpreven.setText(""+datosReferenciasPedidos.get(position).getValor());
+        holder.txtpreven.setText( FormatoNumero.format(FormatoNumero(datosReferenciasPedidos.get(position).getValor())));
         holder.txtcabtidad.setText(""+datosReferenciasPedidos.get(position).getCantidad());
+        holder.txttotal.setText(datosReferenciasPedidos.get(position).getTotal());
     }
 
     @Override
@@ -58,7 +59,7 @@ public class AdaptadorPedidosReferencias extends RecyclerView.Adapter<AdaptadorP
 
 
     public class PedidosReferenciasHolder extends RecyclerView.ViewHolder {
-        TextView txtNomref, txtcodigoref,txtpreven,txtcabtidad;
+        TextView txtNomref, txtcodigoref,txtpreven,txtcabtidad,txttotal;
 
         public PedidosReferenciasHolder(@NonNull View itemView) {
             super(itemView);
@@ -66,6 +67,7 @@ public class AdaptadorPedidosReferencias extends RecyclerView.Adapter<AdaptadorP
             txtcodigoref = itemView.findViewById(R.id.txt_codigo_referencia_pedidos);
             txtcabtidad = itemView.findViewById(R.id.txt_cantidad_referencia_pedidos);
             txtpreven = itemView.findViewById(R.id.txt_precio_referencia_pedidos);
+            txttotal = itemView.findViewById(R.id.txt_total_referencia_pedidos);
         }
     }
 }

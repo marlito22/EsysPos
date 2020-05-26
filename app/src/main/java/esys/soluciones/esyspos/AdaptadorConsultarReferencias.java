@@ -38,17 +38,11 @@ public class AdaptadorConsultarReferencias extends RecyclerView.Adapter<Adaptado
 
     @Override
     public void onBindViewHolder(@NonNull ConsultarReferenciasHolder holder, int position) {
-
-
         holder.txtNomref.setText(datosConsultarReferencias.get(position).getNomref());
         holder.txtcodigoref.setText("Codigo: "+datosConsultarReferencias.get(position).getCodigoref());
         holder.txtstock.setText("Stock: "+datosConsultarReferencias.get(position).getStock());
         holder.txtpreuco.setText("$"+datosConsultarReferencias.get(position).getPreuco());
         holder.txtpreven.setText("$"+datosConsultarReferencias.get(position).getPreven());
-        holder.txtpreven1.setText("$"+datosConsultarReferencias.get(position).getPreven1());
-        holder.txtpreven2.setText("$"+datosConsultarReferencias.get(position).getPreven2());
-        holder.txtpreven3.setText("$"+datosConsultarReferencias.get(position).getPreven3());
-        holder.txtpreven4.setText("$"+datosConsultarReferencias.get(position).getPreven4());
     }
 
     @Override
@@ -57,7 +51,7 @@ public class AdaptadorConsultarReferencias extends RecyclerView.Adapter<Adaptado
     }
 
     public class ConsultarReferenciasHolder extends RecyclerView.ViewHolder {
-        TextView txtNomref, txtcodigoref,txtpreuco,txtpreven,txtpreven1,txtpreven2,txtpreven3,txtpreven4, txtstock;
+        TextView txtNomref, txtcodigoref,txtpreuco,txtpreven, txtstock;
 
 
         public ConsultarReferenciasHolder(@NonNull View itemView) {
@@ -66,10 +60,6 @@ public class AdaptadorConsultarReferencias extends RecyclerView.Adapter<Adaptado
             txtcodigoref = itemView.findViewById(R.id.textview_codigoref);
             txtpreuco = itemView.findViewById(R.id.textview_preuco);
             txtpreven = itemView.findViewById(R.id.textview_preven);
-            txtpreven1 = itemView.findViewById(R.id.textview_preven1);
-            txtpreven2 = itemView.findViewById(R.id.textview_preven2);
-            txtpreven3 = itemView.findViewById(R.id.textview_preven3);
-            txtpreven4 = itemView.findViewById(R.id.textview_preven4);
             txtstock = itemView.findViewById(R.id.textview_stock);
         }
     }
