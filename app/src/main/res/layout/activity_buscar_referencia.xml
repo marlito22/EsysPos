@@ -10,7 +10,7 @@
 
     <EditText
         android:id="@+id/buscar_referencia_pedidos"
-        android:backgroundTint="@color/colorTexto"
+        android:backgroundTint="@color/colorPrimary"
         android:fontFamily="@font/carrois_gothic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,8 +21,8 @@
         android:paddingRight="30dp"
         android:hint="nombre de referencia"
         android:inputType="textPersonName"
-        android:textColor="@color/colorTexto"
-        android:textColorHint="@color/colorTexto"
+        android:textColor="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimary"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="184dp" />
 
@@ -30,7 +30,7 @@
         android:id="@+id/rv_buscar_referencia"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textColor="@color/colorTexto"
+        android:textColor="@color/colorPrimary"
         android:padding="20sp"/>
 
 </LinearLayout>

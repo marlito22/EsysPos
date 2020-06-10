@@ -324,7 +324,7 @@
             android:background="@drawable/redondeo_imagenes"
             android:fontFamily="@font/carrois_gothic"
             android:text="Guardar"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorPrimary"
             android:textStyle="bold" />
 
         <Button
@@ -334,10 +334,10 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_weight="1"
-            android:background="@drawable/redondeo_imagenes"
+            android:background="@drawable/redondeo_imagenes2"
             android:fontFamily="@font/carrois_gothic"
             android:text="Atras"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorTexto"
             android:textStyle="bold" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

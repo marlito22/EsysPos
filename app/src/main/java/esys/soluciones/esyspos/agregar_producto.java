@@ -105,9 +105,9 @@ public class agregar_producto {
                 try{
                     int cantidad = Integer.parseInt(txtCantidadProducto.getText().toString());
                     int codigo = datosConsultarReferencias.get(rv_BuscarReferencia.getChildAdapterPosition(view_registro_producto)).getCodigoref();
-                    String precio = FormatoMoneda.format(FormatoNumero(datosConsultarReferencias.get(rv_BuscarReferencia.getChildAdapterPosition(view_registro_producto)).getPreven()));
+                    String precio = FormatoMoneda(datosConsultarReferencias.get(rv_BuscarReferencia.getChildAdapterPosition(view_registro_producto)).getPreven());
                     String nombre = datosConsultarReferencias.get(rv_BuscarReferencia.getChildAdapterPosition(view_registro_producto)).getNomref();
-                    String total_precio = FormatoMoneda.format(FormatoNumero(precio) * cantidad) ;
+                    String total_precio = FormatoMoneda(""+(FormatoNumero(precio) * cantidad)) ;
                     boolean NuevoProducto = true;
 
                     if(pedidosReferencias.getItemCount() == 0){
@@ -126,7 +126,7 @@ public class agregar_producto {
                         }
                     }
                     total_referencia = FormatoNumero(total.getText().toString()) + FormatoNumero(total_precio);
-                    total.setText(FormatoMoneda.format(total_referencia));
+                    total.setText(FormatoMoneda(total_referencia));
                     pedidosReferencias = new AdaptadorPedidosReferencias(activity,datosReferenciasPedidos);
                     rv_pedidos.setAdapter(pedidosReferencias);
                     dialog_cantidad.dismiss();

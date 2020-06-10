@@ -36,7 +36,7 @@ public class AdaptadorPedidosReferencias extends RecyclerView.Adapter<AdaptadorP
     public void onBindViewHolder(@NonNull PedidosReferenciasHolder holder, int position) {
         holder.txtNomref.setText("►"+datosReferenciasPedidos.get(position).getNomref());
         holder.txtcodigoref.setText(""+datosReferenciasPedidos.get(position).getCodigoref());
-        holder.txtpreven.setText( FormatoNumero.format(FormatoNumero(datosReferenciasPedidos.get(position).getValor())));
+        holder.txtpreven.setText(datosReferenciasPedidos.get(position).getValor());
         holder.txtcabtidad.setText(""+datosReferenciasPedidos.get(position).getCantidad());
         holder.txttotal.setText(datosReferenciasPedidos.get(position).getTotal());
     }

@@ -26,40 +26,35 @@
 
 
         <TextView
+            android:background="@color/colorPrimary"
             android:id="@+id/textview_nomref"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="right"
+            android:gravity="left"
             android:textColor="@color/colorTexto"
             android:text="Nombre Referencia"
             android:textSize="14dp" />
 
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="right">
-
             <TextView
                 android:id="@+id/textview_codigoref"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:textColor="@color/colorTexto"
+                android:layout_gravity="left"
+                android:textColor="@color/colorPrimary"
                 android:text="Codigo"
                 android:textSize="12dp" />
 
-        </LinearLayout>
+
 
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
+            android:layout_gravity="left"
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
@@ -67,14 +62,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:textColor="@color/colorTexto"
+                    android:textColor="@color/colorPrimary"
                     android:text="Precio: "
                     android:textSize="12dp" />
 
                 <TextView
                     android:id="@+id/textview_preven"
                     android:layout_width="wrap_content"
-                    android:textColor="@color/colorTexto"
+                    android:textColor="@color/colorPrimary"
                     android:layout_height="wrap_content"
                     android:textSize="12dp"
                     android:text="$0,00" />

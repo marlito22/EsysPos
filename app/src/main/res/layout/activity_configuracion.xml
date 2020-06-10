@@ -161,11 +161,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:backgroundTint="@color/colorTexto"
+                android:backgroundTint="@color/colorPrimary"
                 android:fontFamily="@font/carrois_gothic"
                 android:gravity="center"
                 android:text="Terminal: "
-                android:textColor="@color/colorTexto"
+                android:textColor="@color/black_overlay"
                 android:textColorHint="@color/colorTexto"
                 android:textSize="24sp"
                 tools:layout_editor_absoluteX="16dp"
@@ -195,7 +195,7 @@
                 android:background="@drawable/redondeo_imagenes"
                 android:fontFamily="@font/carrois_gothic"
                 android:text="Guardar"
-                android:textColor="#3A0F42"
+                android:textColor="@color/colorPrimary"
                 android:textStyle="bold" />
 
             <Button

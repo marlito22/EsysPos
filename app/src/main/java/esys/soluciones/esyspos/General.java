@@ -17,6 +17,7 @@ import androidx.core.content.ContextCompat;
 
 import java.sql.Connection;
 import java.text.NumberFormat;
+import java.util.Locale;
 
 /**
  * Created by PROGRAMADOR2 on 01/11/2017.
@@ -26,8 +27,7 @@ import java.text.NumberFormat;
 public class General extends Application {
 
     //VARIABLES GOBALES
-    public static final NumberFormat FormatoNumero = NumberFormat.getNumberInstance();
-    public static final NumberFormat FormatoMoneda = NumberFormat.getCurrencyInstance();
+    public static final NumberFormat _FormatoMoneda = NumberFormat.getCurrencyInstance();
     public static SharedPreferences sharpref;
     public static String servidor;
     public static String puerto ;
@@ -141,5 +141,23 @@ public class General extends Application {
         return Resultado ;
     }
 
+    public static String FormatoMoneda(Object numero){
+        if(numero == null) {
+            numero = "$0";
+        } else {
+            if (numero.toString().matches("[0-9]*")){
+                numero = _FormatoMoneda.format(numero).substring(1,numero.toString().indexOf("."));
+            }else{
+                if (numero.toString().contains(".")){
+                    numero = _FormatoMoneda.format(FormatoNumero(numero.toString()));
+                    numero = numero.toString().substring(0,numero.toString().indexOf("."));
+                }else {
+                    numero = _FormatoMoneda.format(FormatoNumero(numero.toString()));
+                }
+
+            }
+        }
+        return numero.toString() ;
+    }
 
 }
