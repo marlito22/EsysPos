@@ -16,7 +16,7 @@
             android:text="  Seleccionar Cliente "
             android:textSize="30dp"
             android:textStyle="bold"
-            android:textColor="#3A0F42"/>
+            android:textColor="@color/colorPrimary"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -44,26 +44,11 @@
         android:gravity="center"
         android:background="@drawable/bg_r">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingRight="10dp">
-            <Button
-                android:id="@+id/btnCrearPedidoCliente"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/redondeo_imagenes2"
-                android:text="crear pedido"
-                android:textSize="14dp"
-                android:paddingRight="20dp"
-                android:paddingLeft="20dp"
-                android:textColor="@color/colorTexto" />
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="10dp">
+            android:paddingRight="10dp">
 
             <Button
                 android:id="@+id/btnCancelarPedidoCliente"
@@ -75,6 +60,22 @@
                 android:paddingRight="20dp"
                 android:paddingLeft="20dp"
                 android:textColor="@color/colorTexto"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp">
+            <Button
+                android:id="@+id/btnCrearPedidoCliente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/redondeo_imagenes2"
+                android:text="crear pedido"
+                android:textSize="14dp"
+                android:paddingRight="20dp"
+                android:paddingLeft="20dp"
+                android:textColor="@color/colorTexto" />
         </LinearLayout>
 
 

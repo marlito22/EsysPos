@@ -187,29 +187,31 @@
             android:paddingTop="20dp">
 
             <Button
-                android:id="@+id/btnGuardar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/redondeo_imagenes"
-                android:fontFamily="@font/carrois_gothic"
-                android:text="Guardar"
-                android:textColor="@color/colorPrimary"
-                android:textStyle="bold" />
-
-            <Button
                 android:id="@+id/btnAtras"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/redondeo_imagenes2"
+                android:background="@drawable/redondeo_imagenes"
                 android:fontFamily="@font/carrois_gothic"
                 android:text="Atras"
-                android:textColor="@android:color/white"
+                android:textColor="@color/colorPrimary"
                 android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnGuardar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/redondeo_imagenes2"
+                android:fontFamily="@font/carrois_gothic"
+                android:text="Guardar"
+                android:textColor="@color/colorTexto"
+                android:textStyle="bold" />
+
+
         </LinearLayout>
     </LinearLayout>
 

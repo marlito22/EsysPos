@@ -78,7 +78,7 @@
                         android:hint="Identificacion"
                         android:inputType="textPersonName"
                         android:padding="5dp"
-                        android:textColor="@color/colorTexto"
+                        android:textColor="@color/colorPrimary"
                         android:textColorHint="@color/black_overlay"
                         android:textSize="24sp"
                         tools:layout_editor_absoluteX="16dp"
@@ -105,7 +105,7 @@
                         android:hint="Primer Nombre"
                         android:inputType="numberDecimal"
                         android:padding="5dp"
-                        android:textColor="@color/colorTexto"
+                        android:textColor="@color/colorPrimary"
                         android:textColorHint="@color/black_overlay"
                         android:textSize="24sp"
                         tools:layout_editor_absoluteX="16dp"
@@ -132,7 +132,7 @@
                         android:hint="Segundo Nombre"
                         android:inputType="text"
                         android:padding="5dp"
-                        android:textColor="@android:color/black"
+                        android:textColor="@color/colorPrimary"
                         android:textColorHint="@color/black_overlay"
                         android:textSize="24sp"
                         tools:layout_editor_absoluteX="16dp"
@@ -159,7 +159,7 @@
                         android:hint="Primer Apellido"
                         android:inputType="text"
                         android:padding="5dp"
-                        android:textColor="@android:color/black"
+                        android:textColor="@color/colorPrimary"
                         android:textColorHint="@color/black_overlay"
                         android:textSize="24sp"
                         tools:layout_editor_absoluteX="16dp"
@@ -187,7 +187,7 @@
                         android:hint="Segundo Apellido"
                         android:inputType="text"
                         android:padding="5dp"
-                        android:textColor="@android:color/black"
+                        android:textColor="@color/colorPrimary"
                         android:textColorHint="@color/black_overlay"
                         android:textSize="24sp"
                         tools:layout_editor_absoluteX="16dp"
@@ -215,7 +215,7 @@
                         android:hint="Direccion"
                         android:inputType="text"
                         android:padding="5dp"
-                        android:textColor="@android:color/black"
+                        android:textColor="@color/colorPrimary"
                         android:textColorHint="@color/black_overlay"
                         android:textSize="24sp"
                         tools:layout_editor_absoluteX="16dp"
@@ -243,7 +243,7 @@
                         android:hint="E-Mail"
                         android:inputType="text"
                         android:padding="5dp"
-                        android:textColor="@android:color/black"
+                        android:textColor="@color/colorPrimary"
                         android:textColorHint="@color/black_overlay"
                         android:textSize="24sp"
                         tools:layout_editor_absoluteX="16dp"
@@ -270,7 +270,7 @@
                         android:hint="Tel/cel."
                         android:inputType="text"
                         android:padding="5dp"
-                        android:textColor="@android:color/black"
+                        android:textColor="@color/colorPrimary"
                         android:textColorHint="@color/black_overlay"
                         android:textSize="24sp"
                         tools:layout_editor_absoluteX="16dp"
@@ -316,28 +316,30 @@
         app:layout_constraintVertical_bias="0.0">
 
         <Button
-            android:id="@+id/btnGuardar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/redondeo_imagenes"
-            android:fontFamily="@font/carrois_gothic"
-            android:text="Guardar"
-            android:textColor="@color/colorPrimary"
-            android:textStyle="bold" />
-
-        <Button
             android:id="@+id/btnAtras"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_weight="1"
-            android:background="@drawable/redondeo_imagenes2"
+            android:background="@drawable/redondeo_imagenes"
             android:fontFamily="@font/carrois_gothic"
             android:text="Atras"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnGuardar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/redondeo_imagenes2"
+            android:fontFamily="@font/carrois_gothic"
+            android:text="Guardar"
             android:textColor="@color/colorTexto"
             android:textStyle="bold" />
+
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

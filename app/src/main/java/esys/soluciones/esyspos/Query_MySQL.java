@@ -756,6 +756,43 @@ public class Query_MySQL extends Application {
                 Log.e("ERROR Conexion:",e.getMessage());
             }
 
+            try {
+                stmt.executeUpdate("DROP PROCEDURE `SP_CREAR_TERCERO_ANDROID`;");
+            } catch (Exception e) {
+                Log.e("ERROR Conexion:",e.getMessage());
+            }
+
+            try {
+                stmt.executeUpdate("CREATE PROCEDURE `SP_CREAR_TERCERO_ANDROID`(\n" +
+                        "\tIN `_NITCLI` BIGINT,\n" +
+                        "\tIN `_NOMCLI` VARCHAR(100),\n" +
+                        "\tIN `_DIRCLI` VARCHAR(100),\n" +
+                        "\tIN `_TELCLI` CHAR(50),\n" +
+                        "\tIN `_EMAIL` CHAR(50)\n" +
+                        ")\n" +
+                        "LANGUAGE SQL\n" +
+                        "NOT DETERMINISTIC\n" +
+                        "CONTAINS SQL\n" +
+                        "SQL SECURITY DEFINER\n" +
+                        "COMMENT ''\n" +
+                        "BEGIN\n" +
+                        "INSERT INTO t64(\n" +
+                        "CODCLI,NOMCLI,NITCLI,IDENTI,DIGVER,DIRCLI,CIUCLI,CONRET,\n" +
+                        "NATCLI,CLACLI,TELCLI,TIPCLI,CODDEPMUN,LISPRE,TIPREG,CUPOCAR,\n" +
+                        "ACUPUN,CODVEN,PLAZO,CONGCRE,FILLER64,FECNAC,TIPTAR,BARRIO,TELS,\n" +
+                        "EMAIL,INGRESOS,SEXO,REFER1,TELREFER1,REFER2,TELREFER2,HABICREDI,\n" +
+                        "FORPAG,NITAFI,CONCRE,PORCRE,FOTOT64,FOTORUT,CHELIS,CODZON,RETFUE,\n" +
+                        "RETIVA,ONLINE,RETICA,PORCEN_RETE,PRIMER_NOMBRE,SEGUNDO_NOMBRE,\n" +
+                        "PRIMER_APELLIDO,SEGUNDO_APELLIDO,CODIGO_CLASIFICACION, COD_DEPARTAMENTO, \n" +
+                        "COD_MUNICIPIO) \n" +
+                        "VALUES ('0',_NOMCLI,_NITCLI,'C','',_DIRCLI,'','N','N','N',_TELCLI,'0','0','0','C','0','0','0','0','0','0','20200611','TAREME','0', '0', \n" +
+                        "_EMAIL, '0', 'M', '0', '0', '0', '0', 'N', 'EF',0,'0', '0', '', '0', 'N', '1', '', '', 'S', '0', '0', 'sd', 'asd', 'adsas', 'asda', '13', '01', '0001');\n" +
+                        "END");
+            } catch (Exception e) {
+                Log.e("ERROR Conexion:",e.getMessage());
+            }
+
+
 
             return null;
         }
@@ -860,6 +897,64 @@ public class Query_MySQL extends Application {
         protected void onPostExecute(Void result) {
             General.cargando(activity,false);
             activity.finish();
+        }
+    }
+
+    public static class insertar_cliente_mysql extends AsyncTask<String, Void, Boolean> {
+
+        Context activity;
+        String error;
+        PreparedStatement stmt = null;
+
+        public insertar_cliente_mysql(Context activity) {
+            this.activity = activity;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            General.cargando(activity,true);
+        }
+
+        @Override
+        protected Boolean doInBackground(String... p) {
+            try {
+                General.connection.setAutoCommit(false);
+                String sql = "CALL SP_CREAR_TERCERO_ANDROID('?', '?', '?', '?', '?')";
+                stmt = General.connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
+                stmt.setString(1,p[0]);
+                stmt.setString(2,p[1]);
+                stmt.setString(3,p[2]);
+                stmt.setString(4,p[3]);
+                stmt.setString(5,p[4]);
+                stmt.executeUpdate();
+            } catch (Exception e) {
+                error = e.getMessage();
+                try {
+                    General.connection.rollback();
+                    General.cargando(activity,false);
+                } catch (SQLException ex) {
+                    General.cargando(activity,false);
+                    ex.printStackTrace();
+                    Toast.makeText(activity,e.getMessage(),Toast.LENGTH_LONG).show();
+                }
+                return false;
+            }
+            return true;
+        }
+        // onPostExecute displays the results of the AsyncTask.
+        @Override
+        protected void onPostExecute(Boolean result) {
+            try {
+                if (result){
+
+                }else {
+                    Toast.makeText(activity,error,Toast.LENGTH_LONG).show();
+                    General.cargando(activity,false);
+                }
+            } catch (Exception e) {
+                General.cargando(activity,false);
+                e.printStackTrace();
+            }
         }
     }
 
