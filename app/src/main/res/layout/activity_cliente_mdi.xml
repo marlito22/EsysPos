@@ -59,50 +59,22 @@
                 app:layout_constraintVertical_bias="0.04000002">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:padding="5dp">
 
                     <EditText
                         android:id="@+id/txtNitcli"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:autofillHints=""
                         android:background="@drawable/redondeo_imagenes"
                         android:backgroundTint="@color/colorTexto"
-                        android:ems="20"
                         android:fontFamily="@font/carrois_gothic"
                         android:gravity="center"
                         android:hint="Identificacion"
-                        android:inputType="textPersonName"
-                        android:padding="5dp"
-                        android:textColor="@color/colorPrimary"
-                        android:textColorHint="@color/black_overlay"
-                        android:textSize="24sp"
-                        tools:layout_editor_absoluteX="16dp"
-                        tools:layout_editor_absoluteY="184dp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:padding="5dp">
-
-                    <EditText
-                        android:id="@+id/txtPrimerNombre"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:background="@drawable/redondeo_imagenes"
-                        android:backgroundTint="@color/colorTexto"
-                        android:ems="20"
-                        android:fontFamily="@font/carrois_gothic"
-                        android:gravity="center"
-                        android:hint="Primer Nombre"
                         android:inputType="numberDecimal"
                         android:padding="5dp"
                         android:textColor="@color/colorPrimary"
@@ -114,19 +86,44 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="5dp">
+
+                    <EditText
+                        android:id="@+id/txtPrimerNombre"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/redondeo_imagenes"
+                        android:backgroundTint="@color/colorTexto"
+                        android:fontFamily="@font/carrois_gothic"
+                        android:gravity="center"
+                        android:hint="Primer Nombre"
+                        android:inputType="text"
+                        android:padding="5dp"
+                        android:textColor="@color/colorPrimary"
+                        android:textColorHint="@color/black_overlay"
+                        android:textSize="24sp"
+                        tools:layout_editor_absoluteX="16dp"
+                        tools:layout_editor_absoluteY="184dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:padding="5dp">
 
                     <EditText
                         android:id="@+id/txtSegundoNombre"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:background="@drawable/redondeo_imagenes"
                         android:backgroundTint="@color/colorTexto"
-                        android:ems="20"
                         android:fontFamily="@font/carrois_gothic"
                         android:gravity="center"
                         android:hint="Segundo Nombre"
@@ -140,17 +137,16 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:padding="5dp">
 
                     <EditText
                         android:id="@+id/txtPrimerApellido"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_weight="1"
                         android:background="@drawable/redondeo_imagenes"
                         android:backgroundTint="@color/colorTexto"
                         android:ems="20"
@@ -168,20 +164,18 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:padding="5dp">
 
                     <EditText
                         android:id="@+id/txtSegundoApellido"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_weight="1"
                         android:background="@drawable/redondeo_imagenes"
                         android:backgroundTint="@color/colorTexto"
-                        android:ems="20"
                         android:fontFamily="@font/carrois_gothic"
                         android:gravity="center"
                         android:hint="Segundo Apellido"
@@ -196,20 +190,18 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:padding="5dp">
 
                     <EditText
                         android:id="@+id/txtDireccion"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_weight="1"
                         android:background="@drawable/redondeo_imagenes"
                         android:backgroundTint="@color/colorTexto"
-                        android:ems="20"
                         android:fontFamily="@font/carrois_gothic"
                         android:gravity="center"
                         android:hint="Direccion"
@@ -224,20 +216,18 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:padding="5dp">
 
                     <EditText
                         android:id="@+id/txtCorreo"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_weight="1"
                         android:background="@drawable/redondeo_imagenes"
                         android:backgroundTint="@color/colorTexto"
-                        android:ems="20"
                         android:fontFamily="@font/carrois_gothic"
                         android:gravity="center"
                         android:hint="E-Mail"
@@ -251,24 +241,22 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:padding="5dp">
 
                     <EditText
                         android:id="@+id/txtTelefono"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_weight="1"
                         android:background="@drawable/redondeo_imagenes"
                         android:backgroundTint="@color/colorTexto"
-                        android:ems="20"
                         android:fontFamily="@font/carrois_gothic"
                         android:gravity="center"
                         android:hint="Tel/cel."
-                        android:inputType="text"
+                        android:inputType="text|phone"
                         android:padding="5dp"
                         android:textColor="@color/colorPrimary"
                         android:textColorHint="@color/black_overlay"

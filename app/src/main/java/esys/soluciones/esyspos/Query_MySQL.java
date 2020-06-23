@@ -919,7 +919,7 @@ public class Query_MySQL extends Application {
         protected Boolean doInBackground(String... p) {
             try {
                 General.connection.setAutoCommit(false);
-                String sql = "CALL SP_CREAR_TERCERO_ANDROID('?', '?', '?', '?', '?')";
+                String sql = "CALL SP_CREAR_TERCERO_ANDROID(?, ?, ?, ?, ?)";
                 stmt = General.connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
                 stmt.setString(1,p[0]);
                 stmt.setString(2,p[1]);
@@ -927,6 +927,7 @@ public class Query_MySQL extends Application {
                 stmt.setString(4,p[3]);
                 stmt.setString(5,p[4]);
                 stmt.executeUpdate();
+                General.connection.commit();
             } catch (Exception e) {
                 error = e.getMessage();
                 try {
@@ -946,7 +947,8 @@ public class Query_MySQL extends Application {
         protected void onPostExecute(Boolean result) {
             try {
                 if (result){
-
+                    Toast.makeText(activity,"Tercero Guardado",Toast.LENGTH_LONG).show();
+                    General.cargando(activity,false);
                 }else {
                     Toast.makeText(activity,error,Toast.LENGTH_LONG).show();
                     General.cargando(activity,false);

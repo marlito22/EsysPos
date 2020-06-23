@@ -34,16 +34,14 @@ public class cliente_mdi extends AppCompatActivity {
         guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String nombre = PrimerNombre.getText().toString() + " " + SegundoNombre.getText().toString()+ " " + PrimerAperllido.getText().toString()+ " " + SegundoApellido.getText().toString();
                 clienteMysql = new Query_MySQL.insertar_cliente_mysql(activity);
                 clienteMysql.execute(
                         Identificacion.getText().toString(),
-                        PrimerNombre.getText().toString(),
-                        SegundoNombre.getText().toString(),
-                        PrimerAperllido.getText().toString(),
-                        SegundoApellido.getText().toString(),
+                        nombre.toUpperCase(),
                         Direccion.getText().toString(),
-                        Correo.getText().toString(),
-                        Telefono.getText().toString());
+                        Telefono.getText().toString(),
+                        Correo.getText().toString());
             }
         });
 
