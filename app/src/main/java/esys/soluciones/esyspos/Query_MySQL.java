@@ -788,6 +788,7 @@ public class Query_MySQL extends Application {
                         "VALUES ('0',_NOMCLI,_NITCLI,'C','',_DIRCLI,'','N','N','N',_TELCLI,'0','0','0','C','0','0','0','0','0','0','20200611','TAREME','0', '0', \n" +
                         "_EMAIL, '0', 'M', '0', '0', '0', '0', 'N', 'EF',0,'0', '0', '', '0', 'N', '1', '', '', 'S', '0', '0', 'sd', 'asd', 'adsas', 'asda', '13', '01', '0001');\n" +
                         "END");
+
             } catch (Exception e) {
                 Log.e("ERROR Conexion:",e.getMessage());
             }
