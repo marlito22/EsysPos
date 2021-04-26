@@ -479,6 +479,12 @@ public class Query_MySQL extends Application {
         AlertDialog dialog;
         PreparedStatement stmt = null;
 
+        List<DatosReferenciasPedidos> datosReferenciasPedidos;
+        TextView idpedido;
+        RecyclerView recyclerView_productos;
+        TextView total_pedido_encabezado;
+
+
         public void setDialog(AlertDialog dialog) {
             this.dialog = dialog;
         }
@@ -522,7 +528,7 @@ public class Query_MySQL extends Application {
                 stmt.setInt(2,Id_pedido);
                 stmt.setString(3,nitcli_pedido);
                 stmt.setString(4,comentario_pedido);
-                stmt.setString(5,total_pedido);
+                stmt.setDouble(5, General.FormatoNumero(total_pedido));
                 stmt.executeUpdate();
             } catch (Exception e) {
                 error = e.getMessage();
