@@ -926,6 +926,7 @@ public class Query_MySQL extends Application {
         protected Boolean doInBackground(String... p) {
             try {
                 //prueba de sincronisacion
+
                 General.connection.setAutoCommit(false);
                 String sql = "CALL SP_CREAR_TERCERO_ANDROID(?, ?, ?, ?, ?)";
                 stmt = General.connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
