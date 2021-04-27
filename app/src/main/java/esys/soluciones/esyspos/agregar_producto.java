@@ -103,10 +103,11 @@ public class agregar_producto {
             @Override
             public void onClick(View v) {
                 try{
+
                     int cantidad = Integer.parseInt(txtCantidadProducto.getText().toString());
-                    int codigo = datosConsultarReferencias.get(rv_BuscarReferencia.getChildAdapterPosition(view_registro_producto)).getCodigoref();
-                    String precio = FormatoMoneda(datosConsultarReferencias.get(rv_BuscarReferencia.getChildAdapterPosition(view_registro_producto)).getPreven());
-                    String nombre = datosConsultarReferencias.get(rv_BuscarReferencia.getChildAdapterPosition(view_registro_producto)).getNomref();
+                    int codigo =  BuscarReferencias.datosConsultarReferencias.get(rv_BuscarReferencia.getChildAdapterPosition(view_registro_producto)).getCodigoref();
+                    String precio = FormatoMoneda( BuscarReferencias.datosConsultarReferencias.get(rv_BuscarReferencia.getChildAdapterPosition(view_registro_producto)).getPreven());
+                    String nombre =  BuscarReferencias.datosConsultarReferencias.get(rv_BuscarReferencia.getChildAdapterPosition(view_registro_producto)).getNomref();
                     String total_precio = FormatoMoneda(""+(FormatoNumero(precio) * cantidad)) ;
                     boolean NuevoProducto = true;
 
@@ -116,7 +117,8 @@ public class agregar_producto {
                         for (int i=0; i < pedidosReferencias.getItemCount();i++){
                             if(pedidosReferencias.datosReferenciasPedidos.get(i).getCodigoref() == codigo){
                                 pedidosReferencias.datosReferenciasPedidos.get(i).setCantidad(cantidad);
-                                pedidosReferencias.datosReferenciasPedidos.get(i).setTotal(total_precio);
+                                //total_precio = FormatoMoneda((FormatoNumero(pedidosReferencias.datosReferenciasPedidos.get(i).getTotal()) + FormatoNumero(total_precio)));
+                                pedidosReferencias.datosReferenciasPedidos.get(i).setTotal(FormatoMoneda((FormatoNumero(pedidosReferencias.datosReferenciasPedidos.get(i).getTotal()) + FormatoNumero(total_precio))));
                                 NuevoProducto = false;
                                 break;
                             }

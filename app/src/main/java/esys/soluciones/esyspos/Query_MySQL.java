@@ -46,7 +46,7 @@ public class Query_MySQL extends Application {
 
             try {
                 stmt = General.connection.createStatement();
-                rs = stmt.executeQuery("SELECT SF_LOGIN('"+ parametro[0] +"', '"+ parametro[1] +"')");
+                rs = stmt.executeQuery("SELECT SF_LOGIN('"+ parametro[0] +"', '"+ parametro[1].toUpperCase() +"')");
             } catch (NoClassDefFoundError e){
                 Log.e("Definicion de clase",e.getMessage());
             } catch (Exception e) {
@@ -438,7 +438,7 @@ public class Query_MySQL extends Application {
             try {
                 stmt = General.connection.createStatement();
                 rs = stmt.executeQuery("SELECT t43.NOMREF, t43.CODIGOREF , \n" +
-                        "format(t43.PREUCO,0), format(t43.PREVEN,0), \n" +
+                        "format(t43.PREUCO,2), format(t43.PREVEN,2), \n" +
                         "SF_INVENTARIO_FINAL_ANDROID(t43.CODIGOREF) \n" +
                         "FROM t43 WHERE t43.MARANU = 0");
             } catch (NoClassDefFoundError e){
