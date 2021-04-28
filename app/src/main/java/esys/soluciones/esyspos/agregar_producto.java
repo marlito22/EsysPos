@@ -28,8 +28,13 @@ public class agregar_producto {
         RecyclerView rv_BuscarReferencia,rv_pedidos;
         AlertDialog dialog,dialog_cantidad;
         View view_registro_producto;
+        pedidos_mdi pedidos_mdi;
 
         private Button btnAceptarCantidadProducto, btnCancelarCantidadProducto;
+
+        public void setPedidos_mdi(esys.soluciones.esyspos.pedidos_mdi pedidos_mdi) {
+            this.pedidos_mdi = pedidos_mdi;
+        }
 
         public void setTxtCantidadProducto(EditText txtCantidadProducto) {
             this.txtCantidadProducto = txtCantidadProducto;
@@ -131,6 +136,7 @@ public class agregar_producto {
                     total.setText(FormatoMoneda(total_referencia));
                     pedidosReferencias = new AdaptadorPedidosReferencias(activity,datosReferenciasPedidos);
                     rv_pedidos.setAdapter(pedidosReferencias);
+                    pedidos_mdi.EventosReciclerPedidos();
                     dialog_cantidad.dismiss();
                     dialog.dismiss();
                 }catch (Exception e){

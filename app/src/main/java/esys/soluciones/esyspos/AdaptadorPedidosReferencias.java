@@ -11,11 +11,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import static esys.soluciones.esyspos.General.*;
-
-public class AdaptadorPedidosReferencias extends RecyclerView.Adapter<AdaptadorPedidosReferencias.PedidosReferenciasHolder>
-        implements View.OnClickListener{
+public class AdaptadorPedidosReferencias
+        extends RecyclerView.Adapter<AdaptadorPedidosReferencias.PedidosReferenciasHolder>
+        implements View.OnClickListener, View.OnLongClickListener{
     private View.OnClickListener listener;
+    private  View.OnLongClickListener longClickListener;
     Context context;
     List<DatosReferenciasPedidos> datosReferenciasPedidos;
 
@@ -29,6 +29,7 @@ public class AdaptadorPedidosReferencias extends RecyclerView.Adapter<AdaptadorP
     public PedidosReferenciasHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_referencias_pedidos, parent, false );
         v.setOnClickListener(this);
+        v.setOnLongClickListener(this);
         return new PedidosReferenciasHolder(v);
     }
 
@@ -50,11 +51,23 @@ public class AdaptadorPedidosReferencias extends RecyclerView.Adapter<AdaptadorP
         this.listener = listener;
     }
 
+    public void setLong(View.OnLongClickListener aLong){
+        this.longClickListener = aLong;
+    }
+
     @Override
     public void onClick(View v) {
         if (listener!=null){
             listener.onClick(v);
         }
+    }
+
+    @Override
+    public boolean onLongClick(View view) {
+        if (longClickListener!=null){
+            longClickListener.onLongClick(view);
+        }
+        return false;
     }
 
 

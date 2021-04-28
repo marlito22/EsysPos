@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.security.PrivateKey;
+import static esys.soluciones.esyspos.General.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -596,7 +597,7 @@ public class Query_MySQL extends Application {
                 double valor;
                 for (int i=0; i < referencias.getItemCount();i++){
                     String sql = "INSERT INTO tv10 (IDTERMINAL, IDPEDIDO, CODIGOREF, CANTIDAD, PRECIOUND, PRECIOTOT) VALUES (?,?,?,?,?,?)";
-                    valor = Double.parseDouble(referencias.datosReferenciasPedidos.get(i).getValor().replace(",",""));
+                    valor = FormatoNumero(referencias.datosReferenciasPedidos.get(i).getValor());
                     stmt = General.connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
                     stmt.setInt(1,Integer.parseInt(General.Terminal));
                     stmt.setInt(2,Id_pedido);

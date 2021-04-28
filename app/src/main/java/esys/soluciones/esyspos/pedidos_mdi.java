@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -17,6 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import esys.soluciones.esyspos.R;
 
@@ -30,6 +32,8 @@ public class pedidos_mdi extends AppCompatActivity {
     private Intent intent;
     private Button enviar,btnAceptarCantidadProducto, btnCancelarCantidadProducto;
 
+    private Activity activity;
+
     private EditText txtBuscarReferencia, txtCantidadProducto;
     private RecyclerView rv_BuscarReferencia;
     private agregar_producto agregar_producto;
@@ -40,6 +44,7 @@ public class pedidos_mdi extends AppCompatActivity {
     private List<DatosReferenciasPedidos> datosReferenciasPedidos;
     private List<DatosConsultarReferencias> datosConsultarReferencias;
     private AdaptadorBuscarReferencia BuscarReferencias;
+    private AdaptadorPedidosReferencias adaptadorPedidosReferencias;
     private TextView total_pedido,idpedido;
 
     private AlertDialog alertDialog_cantidad;
@@ -52,6 +57,7 @@ public class pedidos_mdi extends AppCompatActivity {
         setContentView(R.layout.activity_pedidos_mdi);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         final Bundle bundle = getIntent().getExtras();
+
         txtNombreCliente = findViewById(R.id.txtNombreClientePedido);
         agregar = findViewById(R.id.btnAregarProducto);
         recyclerView = findViewById(R.id.recyclerview_buscar_referencia_pedidos);
@@ -59,6 +65,7 @@ public class pedidos_mdi extends AppCompatActivity {
         total_pedido = findViewById(R.id.textview_TotalPedido);
         idpedido = findViewById(R.id.textview_IdPedido);
 
+        activity = this;
 
         recyclerView.setLayoutManager(new GridLayoutManager(this,1));
         datosReferenciasPedidos = new ArrayList<>();
@@ -71,6 +78,7 @@ public class pedidos_mdi extends AppCompatActivity {
         referencia_pedidos_mysql.setConsecutivoPedidoMysql(consecutivoPedidoMysql);
         referencia_pedidos_mysql.execute();
 
+        adaptadorPedidosReferencias = new AdaptadorPedidosReferencias(this,datosReferenciasPedidos);
 
         //consecutivoPedidoMysql.execute();
 
@@ -89,15 +97,12 @@ public class pedidos_mdi extends AppCompatActivity {
             }
         });
 
-
-
         enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 EnviarPedido();
             }
         });
-
 
     }
 
@@ -115,7 +120,7 @@ public class pedidos_mdi extends AppCompatActivity {
         alertDialog.setCanceledOnTouchOutside(false);
 
         BuscarReferencias = new AdaptadorBuscarReferencia(this,datosConsultarReferencias);
-        AdaptadorPedidosReferencias referencias = new AdaptadorPedidosReferencias(this,datosReferenciasPedidos);
+        adaptadorPedidosReferencias = new AdaptadorPedidosReferencias(this,datosReferenciasPedidos);
 
         agregar_producto = new agregar_producto(this);
         agregar_producto.setDatosConsultarReferencias(datosConsultarReferencias);
@@ -124,12 +129,14 @@ public class pedidos_mdi extends AppCompatActivity {
         agregar_producto.setTxtBuscarReferencia(txtBuscarReferencia);
         agregar_producto.setDialog_cantidad(alertDialog_cantidad);
         agregar_producto.setBuscarReferencias(BuscarReferencias);
-        agregar_producto.setPedidosReferencias(referencias);
+        agregar_producto.setPedidosReferencias(adaptadorPedidosReferencias);
         agregar_producto.setTxtCantidadProducto(txtCantidadProducto);
         agregar_producto.setRv_pedidos(recyclerView);
         agregar_producto.setDialog(alertDialog);
         agregar_producto.setTotal(total_pedido);
         agregar_producto.CantidadProducto(builder_cantidad_producto,view_cantidad_producto);
+        agregar_producto.setPedidos_mdi(pedidos_mdi.this);
+
 
         txtBuscarReferencia.addTextChangedListener(new TextWatcher() {
             @Override
@@ -147,6 +154,7 @@ public class pedidos_mdi extends AppCompatActivity {
         });
 
         agregar_producto.AgregarReferencia();
+
     }
 
     public void EnviarPedido(){
@@ -155,7 +163,7 @@ public class pedidos_mdi extends AppCompatActivity {
         final TextView comentario;
         Button enviar, cancelar;
 
-        AdaptadorPedidosReferencias referencias = new AdaptadorPedidosReferencias(this,datosReferenciasPedidos);
+        adaptadorPedidosReferencias = new AdaptadorPedidosReferencias(this,datosReferenciasPedidos);
 
         comentario = view1.findViewById(R.id.popup_txtcomentario);
         enviar = view1.findViewById(R.id.btnEnviarPedidoCliente);
@@ -169,7 +177,7 @@ public class pedidos_mdi extends AppCompatActivity {
         pedido_mysql.setNitcli_pedido(""+nitcli);
         pedido_mysql.setTotal_pedido(total_pedido.getText().toString());
         pedido_mysql.setId_pedido(Integer.parseInt(idpedido.getText().toString()));
-        pedido_mysql.setReferencias(referencias);
+        pedido_mysql.setReferencias(adaptadorPedidosReferencias);
 
         enviar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -190,7 +198,29 @@ public class pedidos_mdi extends AppCompatActivity {
         alertDialog.show();
     }
 
+    public void EventosReciclerPedidos() {
+        recyclerView.setLayoutManager(new GridLayoutManager(activity,1));
+            adaptadorPedidosReferencias.setLong(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    try {
+                        Toast.makeText(activity,"Prueba de OnLongClickListener",Toast.LENGTH_LONG).show();
+                    }catch (Exception e){
+                        Log.e("",e.getMessage());
+                    }
+                    return false;
+                }
+            });
+
+            adaptadorPedidosReferencias.setListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(activity,"Prueba de OnClickListener",Toast.LENGTH_LONG).show();
+                }
+            });
 
 
+            recyclerView.setAdapter(adaptadorPedidosReferencias);
+    }
 
 }
