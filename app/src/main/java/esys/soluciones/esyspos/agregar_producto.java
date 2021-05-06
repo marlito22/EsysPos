@@ -1,10 +1,16 @@
 package esys.soluciones.esyspos;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -12,6 +18,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import static esys.soluciones.esyspos.General.*;
+
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,22 +34,34 @@ public class agregar_producto {
         List<DatosReferenciasPedidos> datosReferenciasPedidos;
         EditText txtBuscarReferencia,txtCantidadProducto;
         RecyclerView rv_BuscarReferencia,rv_pedidos;
-        AlertDialog dialog,dialog_cantidad;
+        AlertDialog dialog;
+
         View view_registro_producto;
         pedidos_mdi pedidos_mdi;
+        AlertDialog.Builder builder_cantidad_producto;
+        View view_cantidad_producto;
 
         private Button btnAceptarCantidadProducto, btnCancelarCantidadProducto;
+        private ImageView imgImagenProducto;
 
-        public void setPedidos_mdi(esys.soluciones.esyspos.pedidos_mdi pedidos_mdi) {
+        public void setView_registro_producto(View view_registro_producto) {
+            this.view_registro_producto = view_registro_producto;
+        }
+
+    public void setBuilder_cantidad_producto(AlertDialog.Builder builder_cantidad_producto) {
+        this.builder_cantidad_producto = builder_cantidad_producto;
+    }
+
+    public void setView_cantidad_producto(View view_cantidad_producto) {
+        this.view_cantidad_producto = view_cantidad_producto;
+    }
+
+    public void setPedidos_mdi(esys.soluciones.esyspos.pedidos_mdi pedidos_mdi) {
             this.pedidos_mdi = pedidos_mdi;
         }
 
         public void setTxtCantidadProducto(EditText txtCantidadProducto) {
             this.txtCantidadProducto = txtCantidadProducto;
-        }
-
-        public void setDialog_cantidad(AlertDialog dialog_cantidad) {
-            this.dialog_cantidad = dialog_cantidad;
         }
 
         public void setPedidosReferencias(AdaptadorPedidosReferencias pedidosReferencias) {
@@ -95,14 +115,40 @@ public class agregar_producto {
             BuscarReferencias.filtrar(list);
         }
 
-        public void CantidadProducto(AlertDialog.Builder builder, View view1){
+        public void CantidadProducto(AlertDialog.Builder builder, View view1 ){
         txtCantidadProducto = view1.findViewById(R.id.popup_txtcantidad);
         btnAceptarCantidadProducto = view1.findViewById(R.id.btnAceptarCantidad);
         btnCancelarCantidadProducto = view1.findViewById(R.id.btnCancelarCantidad);
+        imgImagenProducto = view1.findViewById(R.id.imageView_foto_articulo);
+
+        final AlertDialog dialog_cantidad;
+
 
         builder.setView(view1);
         dialog_cantidad = builder.create();
         dialog_cantidad.setCanceledOnTouchOutside(false);
+
+            /*Cargar nuestra imagen*/
+            File file = new File(Environment.getExternalStorageDirectory().getAbsoluteFile(), "POS/Referencias/Prueba.jpg");
+            String fname=new File(Environment.getExternalStorageDirectory(), "Prueba.jpg").getAbsolutePath();
+            /*Opcional. En caso de que estemos cargando muchas imagenes, es importante carga0rlas en un tamaño suficiente para que se vean bien pero que
+            no consuman mucha memoria. En este caso, al usar inSampleSize = 4 lo que hará Android es cargar la imagen a 1/4 de su tamaño original*/
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inSampleSize = 4;
+            /*Si no hubieramos creado la imagen de la manera correcta, el método de decodeFile siempre nos regresaría nulo*/
+            Bitmap bmp = BitmapFactory.decodeFile(fname,options);
+            if (file.exists()) {
+                if (bmp == null) {
+                    imgImagenProducto.setImageResource(R.drawable.logo); //poner imagen genérica
+                } else {
+                    imgImagenProducto.setImageBitmap(bmp);
+                    bmp = null; //importante cerrar las referencias para que no se queden en memoria
+                }
+                file = null;//importante cerrar las referencias para que no se queden en memoria
+            }
+
+
+
 
         btnAceptarCantidadProducto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -149,8 +195,12 @@ public class agregar_producto {
             @Override
             public void onClick(View v) {
                 dialog_cantidad.dismiss();
+                dialog.dismiss();
             }
         });
+
+            dialog_cantidad.show();
+
 
     }
 
@@ -161,8 +211,8 @@ public class agregar_producto {
                     @Override
                     public void onClick(View v) {
                         try {
+                            CantidadProducto(builder_cantidad_producto,view_cantidad_producto);
                             view_registro_producto =v;
-                            dialog_cantidad.show();
                         }catch (Exception e){
                             Log.e("",e.getMessage());
                         }

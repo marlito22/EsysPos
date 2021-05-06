@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -18,9 +19,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import esys.soluciones.esyspos.R;
+import static esys.soluciones.esyspos.General.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +48,6 @@ public class pedidos_mdi extends AppCompatActivity {
     private TextView total_pedido,idpedido;
 
     private AlertDialog alertDialog_cantidad;
-    private AlertDialog.Builder builder_cantidad_producto;
     private View view_cantidad_producto;
 
     @Override
@@ -109,14 +108,14 @@ public class pedidos_mdi extends AppCompatActivity {
     public void BuscarProductos(){
         final AlertDialog.Builder builder = new AlertDialog.Builder(pedidos_mdi.this);
         View view1 = getLayoutInflater().inflate(R.layout.activity_buscar_referencia, null);
-        builder_cantidad_producto = new AlertDialog.Builder(pedidos_mdi.this);
+        final AlertDialog.Builder builder_cantidad_producto = new AlertDialog.Builder(pedidos_mdi.this);
         view_cantidad_producto = getLayoutInflater().inflate(R.layout.popup_cantidad_producto_pedido, null);
 
         txtBuscarReferencia = view1.findViewById(R.id.buscar_referencia_pedidos);
         rv_BuscarReferencia = view1.findViewById(R.id.rv_buscar_referencia);
 
         builder.setView(view1);
-        final AlertDialog alertDialog = builder.create();
+        AlertDialog alertDialog = builder.create();
         alertDialog.setCanceledOnTouchOutside(false);
 
         BuscarReferencias = new AdaptadorBuscarReferencia(this,datosConsultarReferencias);
@@ -127,14 +126,14 @@ public class pedidos_mdi extends AppCompatActivity {
         agregar_producto.setDatosReferenciasPedidos(datosReferenciasPedidos);
         agregar_producto.setRv_BuscarReferencia(rv_BuscarReferencia);
         agregar_producto.setTxtBuscarReferencia(txtBuscarReferencia);
-        agregar_producto.setDialog_cantidad(alertDialog_cantidad);
         agregar_producto.setBuscarReferencias(BuscarReferencias);
         agregar_producto.setPedidosReferencias(adaptadorPedidosReferencias);
         agregar_producto.setTxtCantidadProducto(txtCantidadProducto);
         agregar_producto.setRv_pedidos(recyclerView);
         agregar_producto.setDialog(alertDialog);
         agregar_producto.setTotal(total_pedido);
-        agregar_producto.CantidadProducto(builder_cantidad_producto,view_cantidad_producto);
+        agregar_producto.setBuilder_cantidad_producto(builder_cantidad_producto);
+        agregar_producto.setView_cantidad_producto(view_cantidad_producto);
         agregar_producto.setPedidos_mdi(pedidos_mdi.this);
 
 
@@ -202,25 +201,47 @@ public class pedidos_mdi extends AppCompatActivity {
         recyclerView.setLayoutManager(new GridLayoutManager(activity,1));
             adaptadorPedidosReferencias.setLong(new View.OnLongClickListener() {
                 @Override
-                public boolean onLongClick(View view) {
+                public boolean onLongClick(final View view) {
                     try {
-                        Toast.makeText(activity,"Prueba de OnLongClickListener",Toast.LENGTH_LONG).show();
+                        final View view1 = view;
+                        android.app.AlertDialog.Builder Respuesta = MensajeConfirmacion(activity,"¿Está seguro de eliminar la referencia del pedido?","Eliminar Referencia");
+
+                        Respuesta.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialogo1, int id) {
+                                double total_referencia_rv = FormatoNumero(adaptadorPedidosReferencias.datosReferenciasPedidos.get(recyclerView.getChildAdapterPosition(view1)).getTotal());
+                                double total_pedido_rv = FormatoNumero(total_pedido.getText().toString());
+                                total_pedido.setText(FormatoMoneda(total_pedido_rv - total_referencia_rv));
+                                adaptadorPedidosReferencias.datosReferenciasPedidos.remove(recyclerView.getChildAdapterPosition(view1));
+                                adaptadorPedidosReferencias.notifyItemRemoved(recyclerView.getChildAdapterPosition(view1));
+                            }
+                        });
+
+                        Respuesta.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialogo1, int id) {
+
+                            }
+                        });
+
+                        Respuesta.show();
+
                     }catch (Exception e){
                         Log.e("",e.getMessage());
                     }
-                    return false;
+                    return true;
                 }
             });
 
             adaptadorPedidosReferencias.setListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(activity,"Prueba de OnClickListener",Toast.LENGTH_LONG).show();
                 }
             });
-
-
             recyclerView.setAdapter(adaptadorPedidosReferencias);
     }
+
+
+
+
+
 
 }

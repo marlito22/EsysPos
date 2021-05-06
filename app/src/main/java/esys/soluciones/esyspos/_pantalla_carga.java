@@ -4,13 +4,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import static esys.soluciones.esyspos.General.*;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import java.io.File;
 
 import esys.soluciones.esyspos.R;
 
@@ -40,6 +45,16 @@ public class _pantalla_carga extends AppCompatActivity {
         //textBox
         usuario = findViewById(R.id.txtNombreUsuario);
         contraseña = findViewById(R.id.txtContraseña);
+
+        File file = new File(Environment.getExternalStorageDirectory().getAbsoluteFile(), "POS/Referencias/Prueba.jpg");
+        String fname=new File(Environment.getExternalStorageDirectory(), "Prueba.jpg").getAbsolutePath();
+            /*Opcional. En caso de que estemos cargando muchas imagenes, es importante carga0rlas en un tamaño suficiente para que se vean bien pero que
+            no consuman mucha memoria. En este caso, al usar inSampleSize = 4 lo que hará Android es cargar la imagen a 1/4 de su tamaño original*/
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inSampleSize = 4;
+        /*Si no hubieramos creado la imagen de la manera correcta, el método de decodeFile siempre nos regresaría nulo*/
+        Bitmap bmp = BitmapFactory.decodeFile(fname,options);
+
 
         //eventos de los botones
         iniciar_sesion.setOnClickListener(new View.OnClickListener() {

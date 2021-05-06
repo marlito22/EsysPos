@@ -2,9 +2,11 @@ package esys.soluciones.esyspos;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Application;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.view.Window;
@@ -140,7 +142,6 @@ public class General extends Application {
         }
         return Resultado ;
     }
-
     public static String FormatoMoneda(Object numero){
         if(numero == null) {
             numero = "$0";
@@ -158,6 +159,13 @@ public class General extends Application {
             }
         }
         return numero.toString() ;
+    }
+    public static AlertDialog.Builder MensajeConfirmacion(Context context, String Mensaje, String Titulo){
+        AlertDialog.Builder dialogo1 = new AlertDialog.Builder(context);
+        dialogo1.setTitle(Titulo);
+        dialogo1.setMessage(Mensaje);
+        dialogo1.setCancelable(false);
+        return dialogo1;
     }
 
 }
