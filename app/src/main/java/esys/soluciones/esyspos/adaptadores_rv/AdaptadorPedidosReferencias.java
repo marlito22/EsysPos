@@ -1,4 +1,4 @@
-package esys.soluciones.esyspos;
+package esys.soluciones.esyspos.adaptadores_rv;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
+
+import esys.soluciones.esyspos.DatosReferenciasPedidos;
+import esys.soluciones.esyspos.R;
 
 public class AdaptadorPedidosReferencias
         extends RecyclerView.Adapter<AdaptadorPedidosReferencias.PedidosReferenciasHolder>

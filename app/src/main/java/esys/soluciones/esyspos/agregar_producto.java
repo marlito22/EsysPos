@@ -3,11 +3,9 @@ package esys.soluciones.esyspos;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.os.Environment;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -22,6 +20,9 @@ import static esys.soluciones.esyspos.General.*;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+
+import esys.soluciones.esyspos.adaptadores_rv.AdaptadorBuscarReferencia;
+import esys.soluciones.esyspos.adaptadores_rv.AdaptadorPedidosReferencias;
 
 public class agregar_producto {
 

@@ -16,7 +16,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.security.PrivateKey;
 import static esys.soluciones.esyspos.General.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,6 +24,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import esys.soluciones.esyspos.adaptadores_rv.AdaptadorConsultarReferencias;
+import esys.soluciones.esyspos.adaptadores_rv.AdaptadorPedidosReferencias;
 
 public class Query_MySQL extends Application {
 

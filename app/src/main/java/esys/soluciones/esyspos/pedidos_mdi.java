@@ -25,6 +25,9 @@ import static esys.soluciones.esyspos.General.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import esys.soluciones.esyspos.adaptadores_rv.AdaptadorBuscarReferencia;
+import esys.soluciones.esyspos.adaptadores_rv.AdaptadorPedidosReferencias;
+
 public class pedidos_mdi extends AppCompatActivity {
     private TextView txtNombreCliente;
     private long nitcli;
