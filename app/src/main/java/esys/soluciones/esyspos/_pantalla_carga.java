@@ -30,7 +30,6 @@ public class _pantalla_carga extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity__pantalla_carga);
 
-
         Permisos(this);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //iniciamos variables de la conexion
