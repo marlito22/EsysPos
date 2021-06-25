@@ -15,14 +15,15 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+        <activity android:name=".consultar_pedidos.consultar_pedidos"></activity>
         <activity
             android:name=".Inicio._pantalla_carga"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".Cliente.cliente_mdi"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".referencia.buscar_referencia"
             android:screenOrientation="portrait"
