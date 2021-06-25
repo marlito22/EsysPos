@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo_sin_logo"
-    tools:context=".cliente_mdi">
+    tools:context=".Cliente.cliente_mdi">
 
 
     <ScrollView

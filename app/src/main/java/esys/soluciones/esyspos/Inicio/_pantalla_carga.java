@@ -1,13 +1,10 @@
-package esys.soluciones.esyspos;
+package esys.soluciones.esyspos.Inicio;
 
 import androidx.appcompat.app.AppCompatActivity;
-import static esys.soluciones.esyspos.General.*;
+import static esys.soluciones.esyspos.configuracion.General.*;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.os.Environment;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -15,8 +12,8 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import java.io.File;
-
+import esys.soluciones.esyspos.configuracion.General;
+import esys.soluciones.esyspos.MySQL.Query_MySQL;
 import esys.soluciones.esyspos.R;
 
 public class _pantalla_carga extends AppCompatActivity {
@@ -55,7 +52,7 @@ public class _pantalla_carga extends AppCompatActivity {
         configuracion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(_pantalla_carga.this, configuracion.class);
+                Intent intent = new Intent(_pantalla_carga.this, esys.soluciones.esyspos.configuracion.configuracion.class);
                 startActivity(intent);
             }
         });

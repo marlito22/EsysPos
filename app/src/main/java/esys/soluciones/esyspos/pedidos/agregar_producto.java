@@ -1,4 +1,4 @@
-package esys.soluciones.esyspos;
+package esys.soluciones.esyspos.pedidos;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -15,14 +15,15 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import static esys.soluciones.esyspos.General.*;
+import static esys.soluciones.esyspos.configuracion.General.*;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import esys.soluciones.esyspos.adaptadores_rv.AdaptadorBuscarReferencia;
-import esys.soluciones.esyspos.adaptadores_rv.AdaptadorPedidosReferencias;
+import esys.soluciones.esyspos.referencia.DatosConsultarReferencias;
+import esys.soluciones.esyspos.R;
+import esys.soluciones.esyspos.referencia.AdaptadorBuscarReferencia;
 
 public class agregar_producto {
 
@@ -57,7 +58,7 @@ public class agregar_producto {
         this.view_cantidad_producto = view_cantidad_producto;
     }
 
-    public void setPedidos_mdi(esys.soluciones.esyspos.pedidos_mdi pedidos_mdi) {
+    public void setPedidos_mdi(esys.soluciones.esyspos.pedidos.pedidos_mdi pedidos_mdi) {
             this.pedidos_mdi = pedidos_mdi;
         }
 

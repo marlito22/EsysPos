@@ -1,4 +1,4 @@
-package esys.soluciones.esyspos.adaptadores_rv;
+package esys.soluciones.esyspos.pedidos;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import esys.soluciones.esyspos.DatosReferenciasPedidos;
 import esys.soluciones.esyspos.R;
 
 public class AdaptadorPedidosReferencias
@@ -20,7 +19,7 @@ public class AdaptadorPedidosReferencias
     private View.OnClickListener listener;
     private  View.OnLongClickListener longClickListener;
     Context context;
-    List<DatosReferenciasPedidos> datosReferenciasPedidos;
+    public List<DatosReferenciasPedidos> datosReferenciasPedidos;
 
     public AdaptadorPedidosReferencias(Context context, List<DatosReferenciasPedidos> datosReferenciasPedidos) {
         this.context = context;

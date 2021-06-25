@@ -1,4 +1,4 @@
-package esys.soluciones.esyspos;
+package esys.soluciones.esyspos.cuadres;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.Toast;
 
+import esys.soluciones.esyspos.MySQL.Query_MySQL;
 import esys.soluciones.esyspos.R;
 
 import java.util.ArrayList;
@@ -33,7 +34,7 @@ public class cuadre_caja extends AppCompatActivity {
     ExpandableListView expandableListView_cuadre_caja;
     List<String> listGroup;
     HashMap<String,List<String>> listItem;
-    MainAdapter adapter;
+    AdaptadorCuadreCaja adapter;
     Query_MySQL.cuadre_de_caja_por_cajero_mysql query_mySQL ;
 
     final int año = calendar.get(Calendar.YEAR);
@@ -63,7 +64,7 @@ public class cuadre_caja extends AppCompatActivity {
 
                 listGroup = new ArrayList<>();
                 listItem = new HashMap<>();
-                adapter = new MainAdapter(cuadre_caja.this,listGroup,listItem);
+                adapter = new AdaptadorCuadreCaja(cuadre_caja.this,listGroup,listItem);
                 expandableListView_cuadre_caja.setAdapter(adapter);
                 query_mySQL = new Query_MySQL.cuadre_de_caja_por_cajero_mysql(cuadre_caja.this);
                 query_mySQL.setAdapter(adapter);

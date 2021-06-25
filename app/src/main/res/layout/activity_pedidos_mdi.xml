@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/fondo_sin_logo"
     android:orientation="vertical"
-    tools:context="esys.soluciones.esyspos.pedidos_mdi">
+    tools:context="esys.soluciones.esyspos.pedidos.pedidos_mdi">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

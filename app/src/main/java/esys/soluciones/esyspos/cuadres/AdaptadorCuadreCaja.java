@@ -1,4 +1,4 @@
-package esys.soluciones.esyspos;
+package esys.soluciones.esyspos.cuadres;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,13 +12,13 @@ import esys.soluciones.esyspos.R;
 import java.util.HashMap;
 import java.util.List;
 
-public class MainAdapter extends BaseExpandableListAdapter {
+public class AdaptadorCuadreCaja extends BaseExpandableListAdapter {
 
     Context context;
     List<String> listGroup;
     HashMap<String,List<String>> listItem;
 
-    public MainAdapter(Context context, List<String> listGroup, HashMap<String, List<String>> listItem) {
+    public AdaptadorCuadreCaja(Context context, List<String> listGroup, HashMap<String, List<String>> listItem) {
         this.context = context;
         this.listGroup = listGroup;
         this.listItem = listItem;

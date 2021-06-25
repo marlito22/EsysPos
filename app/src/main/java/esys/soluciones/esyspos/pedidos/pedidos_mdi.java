@@ -1,4 +1,4 @@
-package esys.soluciones.esyspos;
+package esys.soluciones.esyspos.pedidos;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,13 +20,15 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import static esys.soluciones.esyspos.General.*;
+import static esys.soluciones.esyspos.configuracion.General.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import esys.soluciones.esyspos.adaptadores_rv.AdaptadorBuscarReferencia;
-import esys.soluciones.esyspos.adaptadores_rv.AdaptadorPedidosReferencias;
+import esys.soluciones.esyspos.referencia.DatosConsultarReferencias;
+import esys.soluciones.esyspos.MySQL.Query_MySQL;
+import esys.soluciones.esyspos.R;
+import esys.soluciones.esyspos.referencia.AdaptadorBuscarReferencia;
 
 public class pedidos_mdi extends AppCompatActivity {
     private TextView txtNombreCliente;
@@ -39,7 +41,7 @@ public class pedidos_mdi extends AppCompatActivity {
 
     private EditText txtBuscarReferencia, txtCantidadProducto;
     private RecyclerView rv_BuscarReferencia;
-    private agregar_producto agregar_producto;
+    private esys.soluciones.esyspos.pedidos.agregar_producto agregar_producto;
     private Query_MySQL.llenar_datos_buscar_referencia_pedidos_mysql referencia_pedidos_mysql;
     private Query_MySQL.insertar_pedido_mysql pedido_mysql;
     private Query_MySQL.consecutivo_pedido_mysql consecutivoPedidoMysql;

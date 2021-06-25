@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo_sin_logo"
-    tools:context="esys.soluciones.esyspos.consultar_referencia">
+    tools:context="esys.soluciones.esyspos.referencia.consultar_referencia">
 
     <EditText
         android:id="@+id/editText_buscar_referencia"

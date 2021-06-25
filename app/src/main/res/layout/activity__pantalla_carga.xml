@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="esys.soluciones.esyspos._pantalla_carga">
+    tools:context="esys.soluciones.esyspos.Inicio._pantalla_carga">
 
     <ImageView
         android:alpha="1"

@@ -1,4 +1,4 @@
-package esys.soluciones.esyspos;
+package esys.soluciones.esyspos.configuracion;
 
 import android.Manifest;
 import android.app.Activity;
@@ -6,7 +6,6 @@ import android.app.AlertDialog;
 import android.app.Application;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.view.Window;
@@ -19,7 +18,9 @@ import androidx.core.content.ContextCompat;
 
 import java.sql.Connection;
 import java.text.NumberFormat;
-import java.util.Locale;
+
+import esys.soluciones.esyspos.MySQL.MySQLConexion;
+import esys.soluciones.esyspos.R;
 
 /**
  * Created by PROGRAMADOR2 on 01/11/2017.

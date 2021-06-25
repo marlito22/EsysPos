@@ -1,4 +1,4 @@
-package esys.soluciones.esyspos;
+package esys.soluciones.esyspos.MDI;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,7 +13,12 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.Toast;
 
-import esys.soluciones.esyspos.adaptadores_rv.Adaptador_GV_Principal;
+import esys.soluciones.esyspos.Cliente.cliente_mdi;
+import esys.soluciones.esyspos.MySQL.Query_MySQL;
+import esys.soluciones.esyspos.R;
+import esys.soluciones.esyspos.cuadres.cuadre_caja;
+import esys.soluciones.esyspos.pedidos.pedidos_mdi;
+import esys.soluciones.esyspos.referencia.consultar_referencia;
 
 public class mdi extends AppCompatActivity {
 

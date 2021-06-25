@@ -1,12 +1,13 @@
-package esys.soluciones.esyspos;
+package esys.soluciones.esyspos.Inicio;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.Window;
 import android.view.WindowManager;
+
+import esys.soluciones.esyspos.R;
 
 public class splash extends AppCompatActivity {
 

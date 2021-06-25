@@ -1,4 +1,4 @@
-package esys.soluciones.esyspos;
+package esys.soluciones.esyspos.Cliente;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import esys.soluciones.esyspos.MySQL.Query_MySQL;
+import esys.soluciones.esyspos.R;
 
 public class cliente_mdi extends AppCompatActivity {
     Button atras, guardar;

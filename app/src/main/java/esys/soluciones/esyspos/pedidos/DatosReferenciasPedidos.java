@@ -1,4 +1,4 @@
-package esys.soluciones.esyspos;
+package esys.soluciones.esyspos.pedidos;
 
 public class DatosReferenciasPedidos {
     private int codigoref, cantidad;

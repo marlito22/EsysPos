@@ -1,4 +1,4 @@
-package esys.soluciones.esyspos.adaptadores_rv;
+package esys.soluciones.esyspos.referencia;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,7 +9,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import esys.soluciones.esyspos.DatosConsultarReferencias;
 import esys.soluciones.esyspos.R;
 
 import java.util.ArrayList;
@@ -20,7 +19,7 @@ public class AdaptadorBuscarReferencia
         implements View.OnClickListener{
     private View.OnClickListener listener;
     Context context;
-    List<DatosConsultarReferencias> datosConsultarReferencias;
+    public List<DatosConsultarReferencias> datosConsultarReferencias;
 
     public AdaptadorBuscarReferencia(Context context, List<DatosConsultarReferencias> datosConsultarReferencias) {
         this.context = context;

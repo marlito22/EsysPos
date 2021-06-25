@@ -5,6 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/splash_screen"
-    tools:context=".splash">
+    tools:context=".Inicio.splash">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

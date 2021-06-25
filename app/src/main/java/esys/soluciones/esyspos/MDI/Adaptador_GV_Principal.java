@@ -1,4 +1,4 @@
-package esys.soluciones.esyspos.adaptadores_rv;
+package esys.soluciones.esyspos.MDI;
 
 import android.content.Context;
 import android.view.LayoutInflater;

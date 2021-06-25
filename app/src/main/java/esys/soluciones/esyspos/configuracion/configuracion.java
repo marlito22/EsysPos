@@ -1,7 +1,7 @@
-package esys.soluciones.esyspos;
+package esys.soluciones.esyspos.configuracion;
 
 import androidx.appcompat.app.AppCompatActivity;
-import static esys.soluciones.esyspos.General.*;
+import static esys.soluciones.esyspos.configuracion.General.*;
 
 import android.app.Activity;
 import android.os.Bundle;

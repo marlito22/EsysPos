@@ -1,4 +1,4 @@
-package esys.soluciones.esyspos;
+package esys.soluciones.esyspos.pedidos;
 
 import android.os.Bundle;
 import android.widget.Button;

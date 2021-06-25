@@ -1,12 +1,13 @@
-package esys.soluciones.esyspos;
+package esys.soluciones.esyspos.MySQL;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+
+import esys.soluciones.esyspos.configuracion.General;
 
 public class MySQLConexion extends AsyncTask<Void,Integer,Boolean> {
 

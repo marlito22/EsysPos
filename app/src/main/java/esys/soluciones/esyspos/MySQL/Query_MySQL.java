@@ -1,4 +1,4 @@
-package esys.soluciones.esyspos;
+package esys.soluciones.esyspos.MySQL;
 
 import android.app.Activity;
 import android.app.Application;
@@ -16,7 +16,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import static esys.soluciones.esyspos.General.*;
+import static esys.soluciones.esyspos.configuracion.General.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,8 +25,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import esys.soluciones.esyspos.adaptadores_rv.AdaptadorConsultarReferencias;
-import esys.soluciones.esyspos.adaptadores_rv.AdaptadorPedidosReferencias;
+import esys.soluciones.esyspos.referencia.DatosConsultarReferencias;
+import esys.soluciones.esyspos.configuracion.General;
+import esys.soluciones.esyspos.referencia.AdaptadorConsultarReferencias;
+import esys.soluciones.esyspos.MDI.mdi;
+import esys.soluciones.esyspos.pedidos.AdaptadorPedidosReferencias;
+import esys.soluciones.esyspos.cuadres.AdaptadorCuadreCaja;
+import esys.soluciones.esyspos.pedidos.DatosReferenciasPedidos;
 
 public class Query_MySQL extends Application {
 
@@ -124,7 +129,7 @@ public class Query_MySQL extends Application {
         Context activity;
         List<String> listGroup;
         HashMap<String,List<String>> listItem;
-        MainAdapter adapter;
+        AdaptadorCuadreCaja adapter;
         private String fechaini,fechafin;
 
         public cuadre_de_caja_por_cajero_mysql(Context activity) {
@@ -139,7 +144,7 @@ public class Query_MySQL extends Application {
             this.listItem = listItem;
         }
 
-        public void setAdapter(MainAdapter adapter) {
+        public void setAdapter(AdaptadorCuadreCaja adapter) {
             this.adapter = adapter;
         }
 
@@ -192,7 +197,7 @@ public class Query_MySQL extends Application {
         Context activity;
         List<String> listGroup;
         HashMap<String,List<String>> listItem;
-        MainAdapter adapter;
+        AdaptadorCuadreCaja adapter;
         private String fechaini,fechafin;
 
         public void setFechaini(String fechaini) {
@@ -223,7 +228,7 @@ public class Query_MySQL extends Application {
             this.listItem = listItem;
         }
 
-        public void setAdapter(MainAdapter adapter) {
+        public void setAdapter(AdaptadorCuadreCaja adapter) {
             this.adapter = adapter;
         }
 

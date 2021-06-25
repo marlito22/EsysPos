@@ -1,4 +1,4 @@
-package esys.soluciones.esyspos;
+package esys.soluciones.esyspos.referencia;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -8,7 +8,9 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
 
-import esys.soluciones.esyspos.R;;
+import esys.soluciones.esyspos.MySQL.Query_MySQL;
+import esys.soluciones.esyspos.R;
+;
 
 public class consultar_referencia extends AppCompatActivity {
 
