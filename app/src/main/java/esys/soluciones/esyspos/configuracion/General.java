@@ -8,11 +8,13 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.view.Window;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -21,6 +23,9 @@ import java.text.NumberFormat;
 
 import esys.soluciones.esyspos.MySQL.MySQLConexion;
 import esys.soluciones.esyspos.R;
+
+
+
 
 /**
  * Created by PROGRAMADOR2 on 01/11/2017.
@@ -39,32 +44,37 @@ public class General extends Application {
     public static String pass;
     public static String Terminal;
     public static Connection connection;
-    private static final int CODIGO_PARA_AUTORIZAR_CAMARA = 1;
+    private static final int CODIGO_PARA_AUTORIZAR = 200;
 
 
     //public static Context activity_actual;
 
     private static ProgressDialog progressDialog = null;
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
     public static void Permisos(Activity activity){
-        if (ContextCompat.checkSelfPermission(activity, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.CAMERA},CODIGO_PARA_AUTORIZAR_CAMARA);
+        int PERMISO_CAMARA = ContextCompat.checkSelfPermission(activity, Manifest.permission.CAMERA);
+        int PERMISO_INTERNET = ContextCompat.checkSelfPermission(activity, Manifest.permission.INTERNET);
+        int PERMISO_ACCESS_NETWORK_STATE = ContextCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_NETWORK_STATE);
+        int PERMISO_WRITE_EXTERNAL_STORAGE = ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        int PERMISO_READ_EXTERNAL_STORAGE = ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE);
+
+
+        if (PERMISO_CAMARA != PackageManager.PERMISSION_GRANTED
+                || PERMISO_INTERNET != PackageManager.PERMISSION_GRANTED
+                || PERMISO_ACCESS_NETWORK_STATE != PackageManager.PERMISSION_GRANTED
+                || PERMISO_WRITE_EXTERNAL_STORAGE != PackageManager.PERMISSION_GRANTED
+                || PERMISO_READ_EXTERNAL_STORAGE != PackageManager.PERMISSION_GRANTED) {
+            activity.requestPermissions( new String[]{
+                    Manifest.permission.CAMERA,
+                    Manifest.permission.INTERNET,
+                    Manifest.permission.ACCESS_NETWORK_STATE,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                    Manifest.permission.READ_EXTERNAL_STORAGE},CODIGO_PARA_AUTORIZAR);
         }
 
-        if (ContextCompat.checkSelfPermission(activity, Manifest.permission.INTERNET) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.INTERNET},CODIGO_PARA_AUTORIZAR_CAMARA);
-        }
 
-        if (ContextCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_NETWORK_STATE) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.ACCESS_NETWORK_STATE},CODIGO_PARA_AUTORIZAR_CAMARA);
-        }
 
-        if (ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},CODIGO_PARA_AUTORIZAR_CAMARA);
-        }
-
-        if (ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},CODIGO_PARA_AUTORIZAR_CAMARA);
-        }
     }
     public static void cargando(Context context, boolean modo) {
         if(modo){

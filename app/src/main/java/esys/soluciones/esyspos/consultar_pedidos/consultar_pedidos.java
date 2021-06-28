@@ -12,5 +12,10 @@ public class consultar_pedidos extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consultar_pedidos);
+
+
+
+
+
     }
 }
