@@ -1,9 +1,11 @@
 package esys.soluciones.esyspos.Inicio;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import static esys.soluciones.esyspos.configuracion.General.*;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -15,6 +17,7 @@ import android.widget.Toast;
 import esys.soluciones.esyspos.configuracion.General;
 import esys.soluciones.esyspos.MySQL.Query_MySQL;
 import esys.soluciones.esyspos.R;
+import esys.soluciones.esyspos.sqlite.ConexionSQL;
 
 public class _pantalla_carga extends AppCompatActivity {
 
@@ -22,12 +25,16 @@ public class _pantalla_carga extends AppCompatActivity {
     private ImageButton configuracion;
     private EditText usuario, contraseña;
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity__pantalla_carga);
 
         Permisos(this);
+
+        BD_SQLite = new ConexionSQL(this,"eSys",null,1);
+
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //iniciamos variables de la conexion
         General.sharpref = getSharedPreferences("Conta",MODE_PRIVATE);

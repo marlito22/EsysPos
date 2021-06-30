@@ -23,8 +23,7 @@ import java.text.NumberFormat;
 
 import esys.soluciones.esyspos.MySQL.MySQLConexion;
 import esys.soluciones.esyspos.R;
-
-
+import esys.soluciones.esyspos.sqlite.ConexionSQL;
 
 
 /**
@@ -45,6 +44,7 @@ public class General extends Application {
     public static String Terminal;
     public static Connection connection;
     private static final int CODIGO_PARA_AUTORIZAR = 200;
+    public static ConexionSQL BD_SQLite;
 
 
     //public static Context activity_actual;
@@ -178,5 +178,6 @@ public class General extends Application {
         dialogo1.setCancelable(false);
         return dialogo1;
     }
+
 
 }
