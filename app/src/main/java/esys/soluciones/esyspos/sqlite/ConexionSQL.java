@@ -6,7 +6,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-import static esys.soluciones.esyspos.sqlite.Tablas_SQLite_Clientes.*;
 
 public class ConexionSQL extends SQLiteOpenHelper {
     private Context context;
@@ -19,8 +18,8 @@ public class ConexionSQL extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         try {
-            db.execSQL(TBL_REFERENCIAS);
-            db.execSQL(TBL_CLIENTES);
+            db.execSQL(Tablas_SQLite_Referencias.CREAR_TBL_REFERENCIAS);
+            db.execSQL(Tablas_SQLite_Clientes.TBL_CLIENTES);
         }catch (Exception e){
             Toast.makeText(context,"Configuracion Guardada", Toast.LENGTH_SHORT);
         }

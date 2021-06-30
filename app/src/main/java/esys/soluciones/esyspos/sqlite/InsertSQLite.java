@@ -25,6 +25,22 @@ public class InsertSQLite {
         }
     }
 
+    public static void Referencias(double IDENTIFICACION, String NOMBRE, int LISTA_PRECIO, Context context){
+        try {
+            SQLiteDatabase DB = BD_SQLite.getWritableDatabase();
+            ContentValues values = new ContentValues();
+
+            values.put("IDENTIFICACION",IDENTIFICACION);
+            values.put("NOMBRE",NOMBRE);
+            values.put("LISTA_PRECIO",LISTA_PRECIO);
+
+            Long ID_RESULTANTE = DB.insert(Tablas_SQLite_Clientes.CREAR_TBL_CLIENTES,Tablas_SQLite_Clientes.ID,values);
+
+        }catch (Exception e){
+            Toast.makeText(context,"Problema al Insertar Cliente: " + e.getMessage(), Toast.LENGTH_LONG);
+        }
+    }
+
 
 
 }
